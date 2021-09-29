@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">login</string>
+    <!--- login -->
+    <string name="etUserName">请输入用户名</string>
+    <string name="etPassword">请输入密码</string>
+    <string name="etKey">请输入激活码</string>
+    <string name="login">登 录</string>
+    <!--netError-->
+    <string name="netError">请检查网络连接是否正常</string>
+    <string name="tv_welcome">欢迎你的到来</string>
+    <string name="tv_login_info">请先填写账号登录信息</string>
+    <string name="tilNameErrorInfo">用户名包含空格，请检查输入是否正确</string>
+    <string name="tiiPwErrorInfo">密码包含空格，请检查输入是否正确</string>
+    <string name="tiiKeyErrorInfo">激活码包含空格，请检查输入是否正确</string>
+    <string name="loginFailInfo">您输入的账户信息错误，请重新输入</string>
+    <string name="nameNullInfo">用户名不能为空</string>
+    <string name="pwdNullInfo">密码不能为空</string>
+    <string name="keyNullInfo">激活码不能为空</string>
+    <string name="aisleCount">10</string>
+    <string name="_5">5</string>
+    <string-array name="contianer">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+    </string-array>
+</resources>

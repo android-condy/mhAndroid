@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+                name="isLoading"
+                type="boolean" />
+
+        <variable
+                name="isEmpty"
+                type="boolean" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.idic.backstagemoudle.ui.StockManagerActivity">
+
+        <include
+                android:id="@+id/bar"
+                layout="@layout/back_start_toolbar" />
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y66"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bar" />
+
+        <View
+                android:id="@+id/operationBg"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y70"
+                android:layout_marginTop="@dimen/y20"
+                android:background="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvContainer" />
+
+        <Button
+                android:id="@+id/btnRowAdd"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/y60"
+                android:layout_marginStart="@dimen/x36"
+                android:background="@drawable/toolbar_btn_selector"
+                android:gravity="center"
+                android:text="@string/add"
+                android:textColor="@color/black"
+                android:textSize="@dimen/y30"
+                app:layout_constraintBottom_toBottomOf="@id/operationBg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/operationBg" />
+
+        <TextView
+                android:id="@+id/tvRow"
+                android:layout_width="@dimen/x80"
+                android:layout_height="@dimen/y40"
+                android:gravity="center"
+                android:text="5"
+                android:textColor="@color/black"
+                android:textSize="@dimen/y30"
+                app:layout_constraintBottom_toBottomOf="@id/btnRowAdd"
+                app:layout_constraintStart_toEndOf="@id/btnRowAdd"
+                app:layout_constraintTop_toTopOf="@id/btnRowAdd" />
+
+        <Button
+                android:id="@+id/btnRowSub"
+                android:layout_width="@dimen/x60"
+                android:layout_height="@dimen/y60"
+                android:background="@drawable/toolbar_btn_selector"
+                android:gravity="center"
+                android:text="@string/sub"
+                android:textColor="@color/black"
+                android:textSize="@dimen/y30"
+                app:layout_constraintStart_toEndOf="@id/tvRow"
+                app:layout_constraintTop_toTopOf="@id/btnRowAdd" />
+
+
+        <Button
+                android:id="@+id/btnRowFillUp"
+                android:layout_width="@dimen/x300"
+                android:layout_height="@dimen/y60"
+                android:layout_marginStart="@dimen/x36"
+                android:background="@drawable/toolbar_btn_selector"
+                android:text="按层补满"
+                android:textSize="@dimen/y35"
+                app:layout_constraintStart_toEndOf="@id/btnRowSub"
+                app:layout_constraintTop_toTopOf="@id/btnRowAdd" />
+
+        <Button
+                android:id="@+id/btnAllFillUp"
+                android:layout_width="@dimen/x300"
+                android:layout_height="@dimen/y60"
+                android:layout_marginStart="@dimen/x36"
+                android:background="@drawable/toolbar_btn_selector"
+                android:text="@string/fillUpAll"
+                android:textSize="@dimen/y35"
+                app:layout_constraintStart_toEndOf="@id/btnRowFillUp"
+                app:layout_constraintTop_toTopOf="@id/btnRowAdd" />
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvStockManager"
+                visibleGone="@{!isEmpty}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/x16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnRowAdd" />
+
+
+        <ImageView
+                android:id="@+id/ivEmpty"
+                visibleGone="@{isEmpty}"
+                android:layout_width="@dimen/x500"
+                android:layout_height="@dimen/y500"
+                android:scaleType="fitXY"
+                android:src="@drawable/empty"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnAllFillUp" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.Small.DoubleBounce"
+                visibleGone="@{isLoading}"
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y200"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/new_son_bg"
+                app:layout_constraintBottom_toBottomOf="@id/ivEmpty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivEmpty" />
+
+        <EditText
+                android:id="@+id/editInput"
+                android:layout_width="1px"
+                android:layout_height="1px"
+                android:focusable="false"
+                android:inputType="number"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

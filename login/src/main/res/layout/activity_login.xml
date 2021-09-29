@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="model" type="com.idic.login.viewmodel.LoginModel"/>
+        <import type="android.view.View"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#53B5EB"
+            android:id="@+id/root">
+
+        <TextView
+                android:id="@+id/title1"
+                android:text="@string/tv_welcome"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y100"
+                android:layout_marginTop="@dimen/y143"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <TextView
+                android:id="@+id/title2"
+                android:text="@string/tv_login_info"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y50"
+                android:layout_marginTop="@dimen/y10"
+                app:layout_constraintTop_toBottomOf="@id/title1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <com.dueeeke.videoplayer.player.VideoView
+                android:id="@+id/video"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <ImageView
+                android:layout_marginTop="@dimen/y441"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:src="@drawable/login_bg"
+                android:layout_width="@dimen/x872"
+                android:layout_height="@dimen/y1304"
+                android:id="@+id/imageView"/>
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilName"
+                style="@style/tilStyle"
+                app:layout_constraintTop_toTopOf="@id/imageView"
+                android:layout_marginTop="@dimen/y232"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:hint="@string/etUserName"
+                android:textColorHint="@color/gray">
+            <android.support.design.widget.TextInputEditText
+                    android:text="@={model.userName}"
+                    android:id="@+id/tieName"
+                    style="@style/tieStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilPW"
+                style="@style/tilStyle"
+                app:layout_constraintTop_toBottomOf="@id/tilName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="@dimen/y74"
+                android:hint="@string/etPassword"
+                app:passwordToggleEnabled="true"
+                android:textColorHint="@color/gray"
+        >
+
+            <android.support.design.widget.TextInputEditText
+                    android:id="@+id/tiePW"
+                    style="@style/tieStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:text="@={model.password}" />
+        </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+                android:id="@+id/tilKey"
+                android:textColorHint="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/tilPW"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y74"
+                style="@style/tilStyle"
+                android:hint="@string/etKey"
+                app:counterEnabled="true"
+                app:counterMaxLength="16">
+
+            <android.support.design.widget.TextInputEditText
+                    android:text="@={model.key}"
+                    android:id="@+id/tieKey"
+                    style="@style/tieStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+                app:layout_constraintTop_toBottomOf="@id/tilKey"
+                android:layout_marginTop="@dimen/y74"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y120"
+                android:background="@drawable/login_btn"
+                android:text="@string/login"
+                android:textSize="@dimen/x50"
+                app:layout_constraintStart_toStartOf="@id/tilKey"
+                app:layout_constraintEnd_toEndOf="@id/tilKey"
+                android:textColor="@color/white"
+                android:onClick="login"
+                android:id="@+id/btnLogin"/>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+                android:visibility="@{model.dataLoading ? View.VISIBLE : View.GONE}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.Small.Circle"
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y200"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/new_son_bg"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+                name="product"
+                type="com.idic.datamoudle.db.entity.NewProductDetail"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="@drawable/no_logo_common_bg"
+                                                 tools:context=".home.BlindShipmentActivity">
+
+        <VideoView
+                android:id="@+id/bgVideo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <ImageView
+                android:id="@+id/ivPrdbg"
+                android:layout_width="@dimen/x1024"
+                android:layout_height="@dimen/y562"
+                android:layout_marginTop="@dimen/y400"
+                android:background="@drawable/blind_product_detail"
+                android:padding="@dimen/y40"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+                android:id="@+id/logo2"
+                android:layout_width="@dimen/x374"
+                android:layout_height="@dimen/y192"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toTopOf="@id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivPrdbg"
+                tools:background="@drawable/shipment_icon"/>
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="@dimen/x765"
+                android:layout_height="@dimen/y222"
+                android:layout_marginBottom="@dimen/y30"
+                android:background="@drawable/right_bottom"
+                android:gravity="center"
+                android:text="正在为您取货，请稍等片刻\n  不要离开哦！"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y50"
+                app:layout_constraintBottom_toTopOf="@id/adBanner"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.idic.widgetmoudle.BannerViewPager
+                android:id="@+id/adBanner"
+                android:layout_width="@dimen/x962"
+                android:layout_height="@dimen/y278"
+                android:layout_margin="@dimen/y8"
+                app:banner_isTouch="false"
+                app:banner_isloop="false"
+                app:layout_constraintBottom_toBottomOf="@id/ivBg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageView
+                android:id="@+id/ivBg"
+                android:layout_width="@dimen/x980"
+                android:layout_height="@dimen/y295"
+                android:layout_marginBottom="@dimen/y30"
+                android:background="@drawable/long_img_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.idic.widgetmoudle.ZoomIndicator
+                android:id="@+id/indicaZoom"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y30"
+                android:layout_gravity="bottom|right"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="@id/adBanner"
+                app:layout_constraintEnd_toEndOf="@id/adBanner"
+                app:layout_constraintStart_toStartOf="@id/adBanner"
+                app:zoom_alpha_min="0.5"
+                app:zoom_leftmargin="@dimen/x20"
+                app:zoom_max="1.5"
+                app:zoom_selector="@drawable/indicator_blue_circle"/>
+
+        <android.support.v4.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:background="@color/white"
+                android:visibility="gone"
+                android:layout_height="wrap_content">
+            <TextView android:id="@+id/tv_message"
+                      android:layout_margin="10px"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"/>
+        </android.support.v4.widget.NestedScrollView>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

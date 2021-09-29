@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="aisle"
+            type="com.idic.backstagemoudle.boxtest.data.Aisle" />
+
+        <variable
+            name="click"
+            type="com.idic.backstagemoudle.boxtest.view.AisleClickListener" />
+    </data>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10px"
+        android:background="@color/bgcolor"
+        android:onClick="@{()->click.aisleClick(aisle)}"
+        android:padding="5dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{@string/aisle_info(aisle.row,aisle.column)}"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:text="1行1列" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="@{@string/aisleNumber(aisle.number)}"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                tools:text="1号货道" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="点击测试货道"
+                android:textColor="@color/black"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>

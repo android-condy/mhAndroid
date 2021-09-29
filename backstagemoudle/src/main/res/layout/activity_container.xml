@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.idic.backstagemoudle.util.TypeInverseMethod" />
+
+        <variable
+                name="screenType"
+                type="com.idic.basecommon.utils.ScreenType" />
+
+        <variable
+                name="motorType"
+                type="com.idic.basecommon.utils.MotorType" />
+
+        <variable
+                name="containerModel"
+                type="com.idic.backstagemoudle.viewmodel.ContainerConfigModel" />
+
+        <variable
+                name="isLoading"
+                type="boolean" />
+
+        <variable
+                name="containerClickCallback"
+                type="com.idic.backstagemoudle.ui.ContainerClickCallback" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bgcolor">
+
+        <include
+                android:id="@+id/bar"
+                layout="@layout/back_start_toolbar" />
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y66"
+                android:layout_marginTop="@dimen/y20"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bar" />
+
+        <LinearLayout
+                android:id="@+id/llContainerSet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/y10"
+                android:background="@drawable/setting_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/x10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rvContainer">
+
+            <TextView
+                    style="@style/containerConfig_title2"
+                    android:layout_marginTop="@dimen/y10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/containerConfig"
+                    android:textSize="@dimen/y30" />
+
+            <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y1"
+                    android:layout_marginTop="@dimen/y8"
+                    android:background="@color/gray" />
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:id="@+id/llLayer"
+                        style="@style/container_ll"
+                        android:layout_width="@dimen/x305"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                            android:id="@+id/tvLayer"
+                            style="@style/containerConfig_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/y10"
+                            android:gravity="center_vertical"
+                            android:text="@string/layer" />
+
+                    <RadioGroup
+                            android:id="@+id/rgLed"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/y10"
+                            android:orientation="horizontal"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintStart_toStartOf="@id/tvLayer"
+                            app:layout_constraintTop_toBottomOf="@id/tvLayer">
+
+                        <RadioButton
+                                android:id="@+id/rbShopCarOpen"
+                                style="@style/rbStyle"
+                                layerModify="@{containerModel.curSelectContainer}"
+                                android:layout_width="wrap_content"
+                                android:background="@drawable/aisle_modify_selector"
+                                android:checked="@={containerModel.curSelectContainer.tempOpenLayer}"
+                                android:onClick="@{(view)->containerClickCallback.onLayerOpenClick(view,containerModel.curSelectContainer)}"
+                                android:text="@string/open" />
+
+                        <RadioButton
+                                android:id="@+id/rbShopCarClose"
+                                style="@style/rbStyle"
+                                layerModify="@{containerModel.curSelectContainer}"
+                                android:layout_width="wrap_content"
+                                android:layout_marginStart="@dimen/x26"
+                                android:background="@drawable/aisle_modify_selector"
+                                android:checked="@={!containerModel.curSelectContainer.tempOpenLayer}"
+                                android:onClick="@{(view)->containerClickCallback.onLayerOpenClick(view,containerModel.curSelectContainer)}"
+                                android:text="@string/close" />
+                    </RadioGroup>
+
+                    <TextView
+                            style="@style/containerConfig_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/y16"
+                            android:text="升降机最大层数"
+                            android:textSize="@dimen/y15" />
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y60"
+                            android:layout_marginTop="@dimen/y16"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                        <Button
+                                android:id="@+id/btnLayerAdd"
+                                android:layout_width="@dimen/x40"
+                                android:layout_height="@dimen/y40"
+                                android:background="@drawable/toolbar_btn_selector"
+                                android:gravity="center"
+                                android:text="@string/add"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/y30" />
+
+                        <TextView
+                                android:id="@+id/tvLayerMaxNumber"
+                                android:layout_width="@dimen/x80"
+                                android:layout_height="@dimen/y40"
+                                android:gravity="center"
+                                android:text="@{String.valueOf(containerModel.curSelectContainer.maxLayer)}"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/y15"
+                                tools:text="7" />
+
+                        <Button
+                                android:id="@+id/btnLayerSub"
+                                android:layout_width="@dimen/x40"
+                                android:layout_height="@dimen/y40"
+                                android:background="@drawable/toolbar_btn_selector"
+                                android:gravity="center"
+                                android:text="@string/sub"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/y30" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                        android:id="@+id/llScreenType"
+                        style="@style/container_ll"
+                        android:layout_width="@dimen/x315"
+                        app:layout_constraintBottom_toBottomOf="@id/llLayer"
+                        app:layout_constraintStart_toEndOf="@id/llLayer"
+                        app:layout_constraintTop_toTopOf="@id/llLayer">
+
+                    <TextView
+                            android:id="@+id/tvScreen"
+                            style="@style/containerConfig_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y50"
+                            android:gravity="center_vertical"
+                            android:text="@string/screen" />
+
+                    <RadioGroup
+                            android:id="@+id/rgScreen"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintStart_toStartOf="@id/tvLayer"
+                            app:layout_constraintTop_toBottomOf="@id/tvLayer">
+
+                        <RadioButton
+                                android:id="@+id/rbCloseScreen"
+                                style="@style/rbStyle"
+                                screenTypeModify="@{containerModel.curSelectContainer}"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/y10"
+                                android:background="@drawable/aisle_modify_selector"
+                                android:checked="@{containerModel.curSelectContainer.tempScreenType == screenType.Stop_off}"
+                                android:onClick="@{(view)->containerClickCallback.onScreenClick(view,containerModel.curSelectContainer)}"
+                                android:text="@{TypeInverseMethod.screenTypeToString(screenType.Stop_off)}" />
+
+                        <RadioButton
+                                android:id="@+id/rbScreenStop"
+                                style="@style/rbStyle"
+                                screenTypeModify="@{containerModel.curSelectContainer}"
+                                android:layout_width="match_parent"
+                                android:layout_marginTop="@dimen/y10"
+                                android:background="@drawable/aisle_modify_selector"
+                                android:checked="@{containerModel.curSelectContainer.tempScreenType == screenType.Running}"
+                                android:onClick="@{(view)->containerClickCallback.onScreenClick(view,containerModel.curSelectContainer)}"
+                                android:text="@{TypeInverseMethod.screenTypeToString(screenType.Running)}" />
+
+                        <RadioButton
+                                android:id="@+id/rbScreenRunning"
+                                style="@style/rbStyle"
+                                screenTypeModify="@{containerModel.curSelectContainer}"
+                                android:layout_marginTop="@dimen/y10"
+                                android:background="@drawable/aisle_modify_selector"
+                                android:checked="@{containerModel.curSelectContainer.tempScreenType == screenType.Normal}"
+                                android:onClick="@{(view)->containerClickCallback.onScreenClick(view,containerModel.curSelectContainer)}"
+                                android:text="@{TypeInverseMethod.screenTypeToString(screenType.Normal)}" />
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                        style="@style/container_ll"
+                        app:layout_constraintStart_toEndOf="@id/llScreenType"
+                        app:layout_constraintTop_toTopOf="@id/llScreenType">
+
+                    <TextView
+                            android:id="@+id/tvAllSet"
+                            style="@style/containerConfig_title2"
+                            android:layout_marginTop="@dimen/y10"
+                            android:gravity="center_vertical"
+                            android:text="@string/allSetMotorType" />
+
+                    <com.idic.widgetmoudle.MultiRowRadioGroup
+                            android:id="@+id/multiRadioGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                        <android.support.constraint.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/y16">
+
+                            <RadioButton
+                                    android:id="@+id/rbUnFeedbackLock"
+                                    style="@style/rbMotorTypeStyle"
+                                    android:layout_width="wrap_content"
+                                    android:text="@{TypeInverseMethod.motorTypeToString(motorType.NO_FEEDBACK_LOCK)}"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    tools:text="无反馈锁" />
+
+                            <RadioButton
+                                    android:id="@+id/rbFeedbackLock"
+                                    style="@style/rbMotorTypeStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginStart="@dimen/x50"
+                                    android:text="@{TypeInverseMethod.motorTypeToString(motorType.FEEDBACK_LOCK)}"
+                                    app:layout_constraintStart_toEndOf="@id/rbUnFeedbackLock"
+                                    app:layout_constraintTop_toTopOf="@id/rbUnFeedbackLock" />
+
+
+                            <RadioButton
+                                    android:id="@+id/rbTwoWireMotor"
+                                    style="@style/rbMotorTypeStyle"
+                                    android:layout_width="wrap_content"
+                                    android:layout_marginTop="@dimen/y16"
+                                    android:text="@{TypeInverseMethod.motorTypeToString(motorType.TWO_WIRE_MOTOR)}"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/rbUnFeedbackLock"
+                                    tools:text="二线制电机" />
+
+                            <RadioButton
+                                    android:id="@+id/rbThreeWireMotor"
+                                    style="@style/rbMotorTypeStyle"
+                                    android:layout_width="wrap_content"
+                                    android:text="@{TypeInverseMethod.motorTypeToString(motorType.THREE_WIRE_MOTOR)}"
+                                    app:layout_constraintStart_toStartOf="@id/rbFeedbackLock"
+                                    app:layout_constraintTop_toTopOf="@id/rbTwoWireMotor" />
+                        </android.support.constraint.ConstraintLayout>
+                    </com.idic.widgetmoudle.MultiRowRadioGroup>
+
+                    <TextView
+                            style="@style/containerConfig_title2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/y10"
+                            android:text="按层设置"
+                            android:textSize="@dimen/y15" />
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/y60"
+                            android:layout_marginTop="@dimen/y16"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                        <Button
+                                android:id="@+id/btnAdd"
+                                android:layout_width="@dimen/x40"
+                                android:layout_height="@dimen/y40"
+                                android:background="@drawable/toolbar_btn_selector"
+                                android:gravity="center"
+                                android:text="@string/add"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/y30" />
+
+                        <TextView
+                                android:id="@+id/tvLayerNumber"
+                                android:layout_width="@dimen/x80"
+                                android:layout_height="@dimen/y40"
+                                android:gravity="center"
+                                android:text="5"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/y15"
+                                tools:text="5" />
+
+                        <Button
+                                android:id="@+id/btnSub"
+                                android:layout_width="@dimen/x40"
+                                android:layout_height="@dimen/y40"
+                                android:background="@drawable/toolbar_btn_selector"
+                                android:gravity="center"
+                                android:text="@string/sub"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/y30" />
+
+                        <Button
+                                android:id="@+id/btnLayerAisleSave"
+                                android:layout_width="@dimen/x150"
+                                android:layout_height="@dimen/y40"
+                                android:layout_marginStart="@dimen/x26"
+                                android:background="@drawable/toolbar_btn_selector"
+                                android:text="@string/btnLayerSave" />
+                    </LinearLayout>
+
+                    <Button
+                            android:id="@+id/btnAllSave"
+                            android:layout_width="@dimen/x300"
+                            android:layout_height="@dimen/y60"
+                            android:layout_marginTop="@dimen/y10"
+                            android:background="@drawable/toolbar_btn_selector"
+                            android:text="@string/saveAllAisle"
+                            android:textSize="@dimen/y35" />
+                </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/llAislesSetting"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/setting_bg"
+                android:orientation="vertical"
+                android:padding="@dimen/x10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/llContainerSet"
+                app:layout_constraintStart_toStartOf="@id/llContainerSet"
+                app:layout_constraintTop_toBottomOf="@id/llContainerSet">
+
+            <TextView
+                    style="@style/containerConfig_title2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/aisleSetting"
+                    android:textSize="@dimen/y30" />
+
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rvAisle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/y10" />
+
+        </LinearLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.Small.DoubleBounce"
+                visibleGone="@{isLoading}"
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/y200"
+                android:layout_gravity="center"
+                app:SpinKit_Color="@color/new_son_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/bar" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

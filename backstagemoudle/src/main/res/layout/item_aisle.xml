@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.idic.backstagemoudle.util.TypeInverseMethod" />
+
+        <variable
+                name="aisle"
+                type="com.idic.backstagemoudle.db.entity.AisleConfigEntity" />
+
+        <variable
+                name="aislesCallback"
+                type="com.idic.backstagemoudle.ui.AisleClickCallback" />
+
+        <variable
+                name="motorType"
+                type="com.idic.basecommon.utils.MotorType" />
+    </data>
+
+    <android.support.v7.widget.CardView
+            android:layout_width="@dimen/x250"
+            android:layout_height="@dimen/y250"
+            app:cardCornerRadius="@dimen/x10"
+            app:cardElevation="@dimen/x3">
+
+        <android.support.constraint.ConstraintLayout
+                aisleModify="@{aisle}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/aisle_modify_selector">
+
+            <TextView
+                    android:id="@+id/tvChannel"
+                    style="@style/backStage_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/channelNumber(aisle.channelNumber)}"
+                    android:textSize="@dimen/y30"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="100号货道" />
+
+            <com.idic.widgetmoudle.MultiRowRadioGroup
+                    android:id="@+id/rgScreen"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/y18"
+                    android:orientation="vertical"
+                    android:paddingStart="@dimen/x10"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvChannel">
+
+                <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <RadioButton
+                            android:id="@+id/rbUnFeedbackLock"
+                            style="@style/rbMotorTypeStyle"
+                            android:layout_marginTop="@dimen/y16"
+                            android:checked="@{aisle.tempMotorType == motorType.NO_FEEDBACK_LOCK}"
+                            android:onClick="@{(view)->aislesCallback.onClick(view,aisle)}"
+                            android:text="@{TypeInverseMethod.motorTypeToString(motorType.NO_FEEDBACK_LOCK)}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:text="@string/unFeedbackLock" />
+
+                    <RadioButton
+                            android:id="@+id/rbFeedbackLock"
+                            style="@style/rbMotorTypeStyle"
+                            android:layout_marginStart="@dimen/x26"
+                            android:checked="@{aisle.tempMotorType == motorType.FEEDBACK_LOCK}"
+                            android:onClick="@{(view)->aislesCallback.onClick(view,aisle)}"
+                            android:text="@{TypeInverseMethod.motorTypeToString(motorType.FEEDBACK_LOCK)}"
+                            app:layout_constraintStart_toEndOf="@id/rbUnFeedbackLock"
+                            app:layout_constraintTop_toTopOf="@id/rbUnFeedbackLock" />
+
+                    <RadioButton
+                            android:id="@+id/rbTwoWireMotor"
+                            style="@style/rbMotorTypeStyle"
+                            android:layout_marginTop="@dimen/y16"
+                            android:checked="@{aisle.tempMotorType == motorType.TWO_WIRE_MOTOR}"
+                            android:onClick="@{(view)->aislesCallback.onClick(view,aisle)}"
+                            android:text="@{TypeInverseMethod.motorTypeToString(motorType.TWO_WIRE_MOTOR)}"
+                            app:layout_constraintStart_toStartOf="@id/rbUnFeedbackLock"
+                            app:layout_constraintTop_toBottomOf="@id/rbUnFeedbackLock"
+                            tools:text="@string/twoWireMotor" />
+
+                    <RadioButton
+                            android:id="@+id/rbThreeWireMotor"
+                            style="@style/rbMotorTypeStyle"
+                            android:checked="@{aisle.tempMotorType == motorType.THREE_WIRE_MOTOR}"
+                            android:onClick="@{(view)->aislesCallback.onClick(view,aisle)}"
+                            android:text="@{TypeInverseMethod.motorTypeToString(motorType.THREE_WIRE_MOTOR)}"
+                            app:layout_constraintStart_toStartOf="@id/rbFeedbackLock"
+                            app:layout_constraintTop_toTopOf="@id/rbTwoWireMotor" />
+                </android.support.constraint.ConstraintLayout>
+            </com.idic.widgetmoudle.MultiRowRadioGroup>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
+</layout>

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">BaseCommon</string>
+    <string name="notEnoughStock">库存不足</string>
+    <string name="maxShopCarCount">购物车已满，请先结算</string>
+    <string name="back">返&#160;&#160;&#160;回</string>
+    <string name="save">保&#160;&#160;&#160;存(%1$d)</string>
+    <string name="saved">保&#160;&#160;&#160;存</string>
+    <string name="device_number">设备编号:%1$s</string>
+    <string name="app_version">版本:%1$s</string>
+    <string name="productPrice">%1$s 元</string>
+    <string name="payInfo">打开微信或支付宝\n扫一扫快速支付</string>
+    <string name="getPayCodeFail">获取支付码失败，请重试</string>
+    <string name="orderCreateFail">订单创建失败，请重试</string>
+    <string name="shopCarEmpty">请先添加商品</string>
+    <string name="help_phone">联系电话:&#160;&#160;%1$s</string>
+</resources>

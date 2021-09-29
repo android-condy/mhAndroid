@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="good"
+                type="com.idic.datamoudle.db.entity.NewProductEntity"/>
+
+        <variable
+                name="click"
+                type="com.idic.blindbox.listener.ItemClickListener"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 android:layout_width="@dimen/x307"
+                                                 android:layout_height="@dimen/y307"
+                                                 android:background="@drawable/blind_product_bg"
+                                                 android:onClick="@{(view)->click.onClick(view,good)}"
+                                                 android:padding="@dimen/y5">
+
+        <ImageView
+                productImg="@{good.image_url}"
+                android:scaleType="centerInside"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <TextView
+                android:id="@+id/tvPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/y20"
+                android:text="@{'¥'+good.price}"
+                android:textColor="#ff106be8"
+                android:textSize="@dimen/y30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.41"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="¥200"/>
+
+        <ImageView
+                android:layout_width="@dimen/x35"
+                android:layout_height="@dimen/y26"
+                android:src="@drawable/cart_icon"
+                app:layout_constraintBottom_toBottomOf="@id/tvPrice"
+                app:layout_constraintStart_toEndOf="@id/tvPrice"
+                app:layout_constraintTop_toTopOf="@id/tvPrice"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

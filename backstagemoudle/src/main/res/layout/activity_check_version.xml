@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <include
+            android:id="@+id/bar"
+            layout="@layout/back_start_toolbar" />
+
+    <TextView
+            android:id="@+id/tvCheckTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y84"
+            android:gravity="center"
+            android:text="请选择售卖界面\n完成后可在后台进行更改"
+            android:textColor="@color/new_son_bg"
+            android:textSize="@dimen/y80"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bar" />
+
+    <ImageView
+            android:id="@+id/version1"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y500"
+            android:layout_marginStart="@dimen/x28"
+            android:layout_marginTop="@dimen/x20"
+            android:src="@drawable/category"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/version2"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y500"
+            android:layout_marginStart="@dimen/x28"
+            android:src="@drawable/half"
+            app:layout_constraintStart_toEndOf="@id/version1"
+            app:layout_constraintTop_toTopOf="@id/version1" />
+
+    <ImageView
+            android:id="@+id/version3"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y500"
+            android:layout_marginStart="@dimen/x28"
+            android:src="@drawable/luckbag"
+            app:layout_constraintStart_toEndOf="@id/version2"
+            app:layout_constraintTop_toTopOf="@id/version1" />
+
+    <ImageView
+            android:id="@+id/version4"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y500"
+            android:layout_marginStart="@dimen/x28"
+            android:src="@drawable/blue"
+            app:layout_constraintStart_toStartOf="@id/version1"
+            app:layout_constraintTop_toBottomOf="@id/version1" />
+
+</android.support.constraint.ConstraintLayout>

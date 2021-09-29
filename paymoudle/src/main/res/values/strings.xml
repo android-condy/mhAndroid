@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="readCardSuccess">刷卡成功</string>
+    <string name="cardNumber">卡号：%1$s</string>
+    <string name="accountBalance">余额：%1$s</string>
+</resources>

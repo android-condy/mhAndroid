@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundProgressBar">
+        <!--外弧的宽度-->
+        <attr name="rpb_sweepStrokeWidth" format="dimension|reference" />
+        <!--外弧的颜色-->
+        <attr name="rpb_sweepStrokeColor" format="color|reference" />
+        <!--外弧的起始位置默认是-90-->
+        <attr name="rpb_sweepStartAngle" format="integer" />
+        <!--中间的文本-->
+        <attr name="rpb_centerText" format="string|reference" />
+        <!--中间文本的大小-->
+        <attr name="rpb_centerTextSize" format="dimension|reference" />
+        <!--中间文本的颜色-->
+        <attr name="rpb_centerTextColor" format="color|reference" />
+        <!--中间的背景颜色-->
+        <attr name="rpb_centerBackgroundColor" format="color|reference" />
+        <!--倒计时的总时间(毫秒)-->
+        <attr name="rpb_countDownTimeInMillis" format="integer" />
+        <!--是否自动开始计时-->
+        <attr name="rpb_autoStart" format="boolean" />
+        <attr name="rpb_progressDirection" format="enum">
+            <enum name="forward" value="0" /><!--正-->
+            <enum name="reverse" value="1" /><!--反-->
+        </attr>
+        <!--是否绘制外层wrapper-->
+        <attr name="rpb_drawOutsideWrapper" format="boolean" />
+        <!--外層wrapper的顔色-->
+        <attr name="rpb_outsideWrapperColor" format="color|reference" />
+        <!--是否支持end to start-->
+        <attr name="rpb_supportEndToStart" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="SignalView">
+        <!--信号柱数量-->
+        <attr name="signalCount" format="reference|integer"/>
+        <!--信号柱之间间隔-->
+        <attr name="signalRectInterval" format="integer"/>
+        <!--信号柱边框颜色-->
+        <attr name="rectBorderWidth" format="integer"/>
+        <!--信号柱边框颜色-->
+        <attr name="rectBorderColor" format="reference|color"/>
+        <!--弱信号颜色-->
+        <attr name="signalLowColor" format="reference|color"/>
+        <!--中等信号颜色-->
+        <attr name="signalMiddleColor" format="reference|color"/>
+        <!--强信号颜色-->
+        <attr name="signalHighColor" format="reference|color"/>
+
+        <!--信号类型文字颜色-->
+        <attr name="signalTypeTextColor" format="reference|color"/>
+        <!--信号类型文字大小-->
+        <attr name="signalTypeTextSize" format="dimension"/>
+    </declare-styleable>
+
+    <!--轮播控件的属性-->
+    <declare-styleable name="BannerViewPager">
+        <attr name="banner_isloop" format="boolean"/> <!--是否自动轮播-->
+        <attr name="banner_looptime" format="integer"/> <!--自动轮播的时间-->
+        <attr name="banner_switchtime" format="integer"/> <!--轮播时，viewpager的切换速度-->
+        <attr name="banner_loop_max_count" format="integer"/> <!--超过这个数字时，才会轮播效果-->
+        <attr name="banner_isTouch" format="boolean"/> <!--禁止左右滑动-->
+    </declare-styleable>
+
+    <!--放大缩小的 indicator-->
+    <declare-styleable name="ZoomIndicator">
+        <attr name="zoom_selector" format="reference"/> <!--selecotr，一般就一个圆点即可-->
+        <attr name="zoom_leftmargin" format="dimension"/><!--两个圆点之间的间距-->
+        <attr name="zoom_max" format="float"/> <!--小圆点放大的倍数-->
+        <attr name="zoom_alpha_min" format="float"/><!--小圆点缩小的倍数-->
+        <attr name="zoom_dismiss_open" format="boolean"/><!--做引导页的最后一页，是否隐藏圆点-->
+    </declare-styleable>
+
+
+    <declare-styleable name="CustomStatusView">
+        <attr name="progress_color" format="color" />
+        <attr name="progress_width" format="dimension" />
+        <attr name="progress_radius" format="dimension" />
+        <attr name="load_success_color" format="color" />
+        <attr name="load_failure_color" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="RoundImageView">
+        <attr name="radius" format="dimension" />
+        <attr name="left_top_radius" format="dimension" />
+        <attr name="right_top_radius" format="dimension" />
+        <attr name="right_bottom_radius" format="dimension" />
+        <attr name="left_bottom_radius" format="dimension" />
+    </declare-styleable>
+</resources>

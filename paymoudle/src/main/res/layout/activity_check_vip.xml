@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="@dimen/x600"
+        android:layout_height="@dimen/y500"
+        android:background="@drawable/query_vip_dialog_background">
+
+    <TextView
+            android:layout_marginTop="@dimen/y40"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tvCheckVipInfo"
+            android:textSize="@dimen/x40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="请将会员卡放置读卡处查询"/>
+
+    <ImageView
+            android:id="@+id/ivCheckCode"
+            app:layout_constraintTop_toBottomOf="@id/tvCheckVipInfo"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="@dimen/x400"
+            android:layout_height="@dimen/y400"
+            android:src="@drawable/shuaka"/>
+
+    <android.support.constraint.Group
+            android:id="@+id/infoGroup"
+            app:constraint_referenced_ids="tvCheckVipInfo,ivCheckCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <EditText
+            android:visibility="visible"
+            android:id="@+id/etReceiverCard"
+            android:focusable="true"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="@dimen/x1"
+            android:layout_height="@dimen/y1"/>
+
+    <TextView
+            android:layout_marginTop="@dimen/y40"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tvQueryResult"
+            android:textSize="@dimen/x40"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="查询结果"/>
+
+    <TextView
+            android:id="@+id/tvCardNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="@dimen/y100"
+            android:textColor="@color/black"
+            tools:text="卡号:123456678"
+            android:textSize="@dimen/y40"/>
+
+    <TextView
+            tools:text="余额：0.11"
+            android:textSize="@dimen/y40"
+            app:layout_constraintStart_toStartOf="@id/tvCardNumber"
+            app:layout_constraintRight_toRightOf="@id/tvCardNumber"
+            app:layout_constraintTop_toBottomOf="@id/tvCardNumber"
+            android:layout_marginTop="@dimen/y50"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvAccountBalance"/>
+
+    <android.support.constraint.Group
+            android:visibility="invisible"
+            android:id="@+id/cardInfoGroup"
+            app:constraint_referenced_ids="tvQueryResult,tvCardNumber,tvAccountBalance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Small.Circle"
+            android:layout_width="@dimen/x200"
+            android:layout_height="@dimen/y200"
+            android:layout_gravity="center"
+            app:SpinKit_Color="@color/new_son_bg"/>
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="title" type="String"/>
+        <variable name="click" type="com.idic.backstagemoudle.ui.BackStageItemListener"/>
+    </data>
+
+    <android.support.v7.widget.CardView
+            android:foreground="@drawable/card_foreground"
+            android:layout_width="@dimen/x420"
+            android:layout_height="@dimen/y340"
+            android:onClick="@{()->click.itemClick(title)}"
+            app:cardElevation="@dimen/x3"
+            app:cardCornerRadius="@dimen/x10">
+
+
+        <TextView
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/y80"
+                tools:text="库存管理"
+                android:text="@{title}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        </TextView>
+    </android.support.v7.widget.CardView>
+</layout>

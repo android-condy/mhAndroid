@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">CategortHome</string>
+    <!-- toolbar -->
+    <string name="tv_query_code">查询会员卡</string>
+    <string name="default_phone">027-84889689</string>
+    <string name="default_deviceName">无人自助售货</string>
+    <string name="default_qrInfo">点击关注二维码</string>
+    <string name="ServicePhone">服务电话:%1$s</string>
+    <string name="productPrice">%1$.2f 元</string>
+    <string name="stock">库存:%1$s</string>
+    <string name="totalAmount">总金额:&#160;&#160;%1$s元</string>
+    <string name="payCount">总数量:&#160;&#160;%1$s</string>
+    <string name="timerBack">返回(%1$s)</string>
+    <string name="itemPayCount">购买数量:%1$d</string>
+
+    <string name="getPrdInfo">请在下方取货口取出商品</string>
+    <string name="waitShipment">待出货：%1$d</string>
+    <string name="shipmentSuccess">出货成功：%1$d</string>
+    <string name="shipmentFail">出货失败：%1$d</string>
+    <string name="channelNumber">货道号：%1$d</string>
+    <string name="blind_price">¥%1$.2f</string>
+    <string name="detail_name">%1$s</string>
+    <string name="detail_size">商品尺寸: %1$s</string>
+    <string name="detail_material">商品材质: %1$s</string>
+    <string name="detail_desc">商品描述: %1$s</string>
+    <string name="detail_price">商品价格: %1$s</string>
+    <string name="wechatScan">请用微信扫二维码</string>
+    <string name="AliPayScan">请用支付宝扫二维码</string>
+    <string name="alipayInfo">使用支付宝支付</string>
+    <string name="weChatInfo">使用微信支付</string>
+    <string name="payTime">%1$s S</string>
+    <string name="clickBack">点我返回</string>
+
+</resources>

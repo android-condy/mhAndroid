@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.BindCategoryActivity">
+
+    <com.dueeeke.videoplayer.player.VideoView
+            android:id="@+id/video"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+<!--    <LinearLayout-->
+<!--            android:id="@+id/flAdVideo"-->
+<!--            style="@style/video_parent"-->
+<!--            android:layout_marginEnd="@dimen/x45"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <com.dueeeke.videoplayer.player.VideoView-->
+<!--                android:id="@+id/playVideo"-->
+<!--                android:layout_width="@dimen/x191"-->
+<!--                android:layout_height="@dimen/y340" />-->
+<!--    </LinearLayout>-->
+
+    <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/x230"
+            android:layout_height="@dimen/y77"
+            android:layout_marginTop="@dimen/y318"
+            android:src="@drawable/hot_title"
+            app:layout_constraintStart_toStartOf="@id/rvCategory"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvCategory"
+            android:layout_width="@dimen/x1000"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_marginBottom="@dimen/y10"
+            app:layout_constraintBottom_toTopOf="@id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivIcon"
+            tools:itemCount="12" />
+
+    <Button
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/x983"
+            android:layout_height="@dimen/y135"
+            android:layout_marginBottom="@dimen/y20"
+            android:background="@drawable/left_bottom"
+            android:text="@string/clickBack"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

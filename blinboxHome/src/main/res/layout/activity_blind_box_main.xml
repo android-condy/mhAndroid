@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".home.BlindBoxMainActivity">
+
+        <com.dueeeke.videoplayer.player.VideoView
+                android:id="@+id/bgVideo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        <!--        <LinearLayout-->
+        <!--                android:id="@+id/flAdVideo"-->
+        <!--                style="@style/video_parent"-->
+        <!--                android:layout_marginEnd="@dimen/x45"-->
+        <!--                app:layout_constraintEnd_toEndOf="parent"-->
+        <!--                app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--            <com.dueeeke.videoplayer.player.VideoView-->
+        <!--                    android:id="@+id/playVideo"-->
+        <!--                    android:layout_width="@dimen/x191"-->
+        <!--                    android:layout_height="@dimen/y340" />-->
+        <!--        </LinearLayout>-->
+
+        <com.idic.widgetmoudle.BannerViewPager
+                android:id="@+id/adBanner"
+                android:layout_width="@dimen/x961"
+                android:layout_height="@dimen/y1058"
+                android:layout_marginTop="@dimen/y28"
+                app:banner_isTouch="false"
+                app:banner_isloop="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivBannerBg" />
+
+        <ImageView
+                android:id="@+id/ivBannerBg"
+                android:layout_width="@dimen/x1024"
+                android:layout_height="@dimen/y1124"
+                android:layout_marginBottom="@dimen/y40"
+                android:background="@drawable/image_ad_bg_big"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/ivPrd1" />
+
+        <ImageView
+                android:id="@+id/ivPrd1"
+                android:layout_width="@dimen/x350"
+                android:layout_height="@dimen/y350"
+                android:background="@drawable/product_trailer"
+                android:padding="@dimen/x40"
+                android:scaleType="centerInside"
+                android:layout_marginBottom="@dimen/y20"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:src="@drawable/timg" />
+
+        <ImageView
+                android:id="@+id/ivPrd2"
+                android:layout_width="@dimen/x350"
+                android:layout_height="@dimen/y350"
+                android:background="@drawable/product_trailer"
+                android:padding="@dimen/x40"
+                android:scaleType="centerInside"
+                app:layout_constraintTop_toTopOf="@id/ivPrd1"
+                app:layout_constraintStart_toEndOf="@id/ivPrd1" />
+
+        <Button
+                android:id="@+id/btn2Pay"
+                style="@style/blinbox_btn_style"
+                android:layout_width="@dimen/x310"
+                android:layout_height="@dimen/y107"
+                android:layout_marginTop="@dimen/y40"
+                android:background="@drawable/btn_right_top"
+                android:text="戳我购买"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivPrd2"
+                app:layout_constraintTop_toTopOf="@id/ivPrd2" />
+
+        <ImageView
+                android:id="@+id/iv2AllProduct"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorTranslate" />
+
+        <ImageView
+                android:id="@+id/iv2Backstage"
+                android:layout_width="@dimen/x300"
+                android:layout_height="@dimen/y250"
+                android:layout_marginTop="@dimen/y130"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+                android:id="@+id/btn2Service"
+                android:layout_width="@dimen/x310"
+                android:layout_height="@dimen/y107"
+                android:layout_marginTop="@dimen/y40"
+                android:background="@drawable/btn_right"
+                android:text="查找客服"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y40"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivPrd2"
+                app:layout_constraintTop_toBottomOf="@id/btn2Pay" />
+
+        <TextView
+                android:id="@+id/tvVersion"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y30"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/btn2Service"
+                tools:text="1.2.1.1.1.4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        <TextView
+                android:background="@color/blue"
+                android:textColor="@color/white"
+                android:text="正在更新....."
+                android:padding="@dimen/x5"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:id="@+id/update_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

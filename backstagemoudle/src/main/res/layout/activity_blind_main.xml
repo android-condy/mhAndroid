@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <Spinner
+            android:id="@+id/spinnerCOM"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/toggleButtonCOM"
+            app:layout_constraintEnd_toStartOf="@id/spinnerBaudRateCOM"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+    <Spinner
+            android:id="@+id/spinnerBaudRateCOM"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/spinnerCOM"
+            app:layout_constraintEnd_toStartOf="@id/toggleButtonCOM"
+            app:layout_constraintStart_toEndOf="@id/spinnerCOM"
+            app:layout_constraintTop_toTopOf="@id/spinnerCOM"/>
+
+    <ToggleButton
+            android:id="@+id/toggleButtonCOM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="ToggleButton"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/spinnerBaudRateCOM"
+            app:layout_constraintTop_toTopOf="@id/spinnerBaudRateCOM"/>
+
+    <Button
+            android:id="@+id/btnTestMotor"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:text="维护页面"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spinnerCOM"/>
+
+    <Button
+            android:id="@+id/btnTest"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:text="测试页面"
+            app:layout_constraintStart_toEndOf="@id/btnTestMotor"
+            app:layout_constraintTop_toTopOf="@id/btnTestMotor"/>
+
+    <Button
+            android:id="@+id/btnBack"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:text="返回"
+            app:layout_constraintStart_toEndOf="@id/btnTest"
+            app:layout_constraintTop_toTopOf="@id/btnTest"/>
+
+    <LinearLayout
+            android:id="@+id/llTest"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toStartOf="@id/clMsg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnTestMotor">
+
+        <Button
+                android:id="@+id/toMaintenanceMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="进入维护模式"/>
+
+        <Button
+                android:id="@+id/quitMaintenanceMode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="退出维护模式"/>
+
+        <Button
+                android:id="@+id/updateChannel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="更新货道"/>
+
+        <Button
+                android:id="@+id/btnTypeSet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="商品类型设定"/>
+
+        <Button
+                android:id="@+id/FullFill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="开始盘点"/>
+
+        <Button
+                android:id="@+id/getChannelCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="获取货道数量"/>
+
+        <Button
+                android:id="@+id/getChannelLayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="获取所有货道的层数"/>
+
+
+        <Button
+                android:id="@+id/faultQuery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="机器故障查询"/>
+
+
+        <Button
+                android:id="@+id/openDoorAgain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="再次开门"/>
+
+        <Button
+                android:id="@+id/btnAllAisleUnblocked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="解禁所有货道"/>
+
+        <Button
+                android:id="@+id/btnRecycling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="回收"/>
+
+        <Button
+                android:id="@+id/btnSystemStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="查看当前系统状态"/>
+        <Button
+                android:id="@+id/system_serial_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="click"
+                android:text="设备序列号"/>
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <Button
+                    android:id="@+id/white_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="click"
+                    android:text="白光"/>
+            <Button
+                    android:id="@+id/purple_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="click"
+                    android:text="紫光"/>
+            <Button
+                    android:id="@+id/greeen_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="click"
+                    android:text="绿光"/>
+            <Button
+                    android:id="@+id/red_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="click"
+                    android:text="红光" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+            android:id="@+id/clMsg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/llTest"
+            app:layout_constraintTop_toTopOf="@id/llTest">
+
+        <TextView
+                android:id="@+id/tvTestMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

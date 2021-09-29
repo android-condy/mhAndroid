@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".home.BlindAllProductActivity">
+
+    <com.dueeeke.videoplayer.player.VideoView
+            android:id="@+id/bgVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <!--    <LinearLayout-->
+    <!--            android:id="@+id/flAdVideo"-->
+    <!--            style="@style/video_parent"-->
+    <!--            android:layout_marginTop="@dimen/y90"-->
+    <!--            android:layout_marginEnd="@dimen/x45"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <com.dueeeke.videoplayer.player.VideoView-->
+    <!--                android:id="@+id/playVideo"-->
+    <!--                android:layout_width="@dimen/x191"-->
+    <!--                android:layout_height="@dimen/y340" />-->
+    <!--    </LinearLayout>-->
+
+
+    <ImageView
+            android:id="@+id/ivInfo"
+            android:layout_width="@dimen/x350"
+            android:layout_height="@dimen/y78"
+            android:layout_marginStart="@dimen/x10"
+            android:layout_marginTop="@dimen/y300"
+            android:scaleType="centerInside"
+            android:src="@drawable/all_goods"
+            app:layout_constraintStart_toStartOf="@id/rvAllGood"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvAllGood"
+            android:layout_width="@dimen/x1000"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/y20"
+            android:layout_marginBottom="@dimen/y10"
+            app:layout_constraintBottom_toTopOf="@id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivInfo"
+            tools:itemCount="12" />
+
+    <Button
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/x983"
+            android:layout_height="@dimen/y135"
+            android:layout_marginBottom="@dimen/y20"
+            android:background="@drawable/left_bottom"
+            android:text="点我回首页"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <com.idic.blindbox.widget.FloatWindowImageView
+            android:id="@+id/hotIp"
+            android:layout_width="@dimen/x150"
+            android:layout_height="@dimen/y200"
+            android:layout_margin="@dimen/x20"
+            android:background="@drawable/hot_ip"
+            app:layout_constraintBottom_toTopOf="@id/btnBack"
+            app:layout_constraintEnd_toEndOf="parent" />
+</android.support.constraint.ConstraintLayout>

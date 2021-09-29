@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.idic.ordermoudle">
+    <application>
+        <activity android:name="com.idic.ordermoudle.CheckVipActivity"
+                android:windowSoftInputMode="stateAlwaysHidden|adjustPan"
+                android:theme="@style/DialogActivityStyle"/>
+    </application>
+</manifest>

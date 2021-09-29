@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="@dimen/x800"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+        <TextView
+                android:id="@+id/dialog_title"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x800"
+                android:layout_height="@dimen/y200"
+                android:layout_marginTop="@dimen/y50"
+                android:background="@drawable/horizontal_line"
+                android:gravity="center"
+                android:text="货道信息修改"
+                android:textSize="@dimen/y60"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+                android:id="@+id/dialog_channelNum"
+                style="@style/backStage_modify_tv"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/y60"
+                android:gravity="center_vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_title"
+                tools:text="货道编号：121324343" />
+
+        <TextView
+                android:id="@+id/dialog_channelStatus"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x500"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelNum"
+                tools:text="货道状态：正常" />
+
+        <TextView
+                android:id="@+id/dialog_channelRow"
+                style="@style/backStage_modify_tv"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/y60"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelStatus"
+                tools:text="行列号：1行1列" />
+
+
+        <TextView
+                android:id="@+id/dialog_channelCount"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x200"
+                android:layout_marginTop="@dimen/y60"
+                android:text="@string/dialog_modify_chanelCount"
+                app:layout_constraintEnd_toStartOf="@id/dialog_channelCount_ed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelRow" />
+
+        <EditText
+                android:id="@+id/dialog_channelCount_ed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y70"
+                android:background="@drawable/horizontal_line"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dialog_channelCount"
+                app:layout_constraintTop_toTopOf="@id/dialog_channelCount" />
+
+        <TextView
+                android:id="@+id/dialog_channelLock"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x200"
+                android:layout_marginTop="@dimen/y60"
+                android:text="@string/dialog_modify_chanelLockNum"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/dialog_channelCount_ed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelCount" />
+
+        <EditText
+                android:id="@+id/dialog_channelLock_ed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y70"
+                android:background="@drawable/horizontal_line"
+                android:inputType="number"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dialog_channelCount"
+                app:layout_constraintTop_toTopOf="@id/dialog_channelLock" />
+
+        <TextView
+                android:id="@+id/dialog_channelStock"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x200"
+                android:layout_marginTop="@dimen/y60"
+                android:text="@string/dialog_modify_chanelStock"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelLock" />
+
+        <EditText
+                android:id="@+id/dialog_channelCapac_ed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y70"
+                android:background="@drawable/horizontal_line"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dialog_channelCount"
+                app:layout_constraintTop_toTopOf="@id/dialog_channelStock" />
+
+
+        <TextView
+                android:id="@+id/dialog_channelPrice"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x200"
+                android:layout_marginTop="@dimen/y60"
+                android:text="产品价格: "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelStock" />
+
+        <EditText
+                android:id="@+id/dialog_channelPrice_ed"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y70"
+                android:background="@drawable/horizontal_line"
+                android:inputType="numberDecimal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/dialog_channelCount"
+                app:layout_constraintTop_toTopOf="@id/dialog_channelPrice" />
+
+
+        <TextView
+                android:id="@+id/dialog_channelName"
+                style="@style/backStage_modify_tv"
+                android:layout_width="@dimen/x200"
+                android:layout_marginTop="@dimen/y60"
+                android:text="绑定产品："
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelPrice_ed" />
+
+
+        <EditText
+                android:id="@+id/edInputName"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y70"
+                android:layout_marginStart="@dimen/x190"
+                android:background="@drawable/horizontal_line"
+                android:hint="请输入产品"
+                android:inputType="textPhonetic"
+                android:maxLines="1"
+                android:textSize="@dimen/x30"
+                app:layout_constraintBottom_toBottomOf="@id/dialog_channelName"
+                app:layout_constraintEnd_toStartOf="@id/ivShowPopu"
+                app:layout_constraintStart_toStartOf="@id/dialog_channelName"
+                app:layout_constraintTop_toTopOf="@id/dialog_channelName" />
+
+        <ImageView
+                android:id="@+id/ivShowPopu"
+                android:layout_width="@dimen/y50"
+                android:layout_height="@dimen/y50"
+                android:scaleType="centerInside"
+                android:src="@drawable/triangle_row"
+                app:layout_constraintBottom_toBottomOf="@id/dialog_channelName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/edInputName"
+                app:layout_constraintTop_toTopOf="@id/dialog_channelName" />
+
+        <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y80"
+                android:layout_marginTop="@dimen/y100"
+                android:background="@drawable/backstage_btn_selector"
+                android:text="取消"
+                app:layout_constraintEnd_toStartOf="@id/btnSubmit"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dialog_channelName" />
+
+        <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/y80"
+                android:background="@drawable/backstage_btn_selector"
+                android:text="提交"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btnCancel"
+                app:layout_constraintTop_toTopOf="@id/btnCancel" />
+
+        <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/modifySubmit_spin_kit"
+                style="@style/SpinKitView.Large.Circle"
+                android:layout_width="@dimen/x200"
+                android:layout_height="@dimen/x200"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                app:SpinKit_Color="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

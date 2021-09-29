@@ -1,0 +1,406 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="deviceConfig"
+                type="com.idic.backstagemoudle.db.entity.DeviceConfigEntity" />
+
+        <variable
+                name="deviceConfigCallback"
+                type="com.idic.backstagemoudle.ui.DeviceOnClickCallback" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bgcolor">
+
+        <include
+                android:id="@+id/bar"
+                layout="@layout/back_start_toolbar" />
+
+        <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="@dimen/y20"
+                android:background="@color/bgcolor"
+                app:layout_constraintBottom_toTopOf="@id/tvChangeUser"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bar">
+
+            <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/tvShopCarTitle"
+                        style="@style/containerConfig_title2"
+                        android:layout_marginStart="@dimen/x20"
+                        android:layout_marginTop="@dimen/x30"
+                        android:text="购物车设置"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/switchBtnShopCar"
+                        style="@style/switchBtnStyle"
+                        android:checked="@={deviceConfig.openShopCar}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvShopCarTitle" />
+
+                <TextView
+                        android:id="@+id/tvShopCarEdTitle"
+                        style="@style/containerConfig_title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/y50"
+                        android:layout_marginStart="@dimen/x25"
+                        android:gravity="center"
+                        android:text="购物车容量"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvShopCarTitle" />
+
+                <EditText
+                        android:id="@+id/editShopCarMax"
+                        style="@style/deviceConfig_Edit"
+                        android:layout_marginEnd="@dimen/x20"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:maxLength="2"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{String.valueOf(deviceConfig.shopcarMax)}"
+                        android:textSize="@dimen/y20"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvShopCarEdTitle" />
+
+                <View
+                        android:id="@+id/view1"
+                        style="@style/hori_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvShopCarEdTitle" />
+
+
+                <TextView
+                        android:id="@+id/tvVipTitle"
+                        style="@style/containerConfig_title2"
+                        android:gravity="center"
+                        android:text="会员卡设置"
+                        app:layout_constraintStart_toStartOf="@id/tvShopCarEdTitle"
+                        app:layout_constraintTop_toBottomOf="@id/view1" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/switchBtnVipCard"
+                        style="@style/switchBtnStyle"
+                        android:checked="@={deviceConfig.openVipCar}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvVipTitle" />
+
+
+                <TextView
+                        android:id="@+id/tvCardPositiveTitle"
+                        style="@style/containerConfig_title2"
+                        android:gravity="center"
+                        android:text="会员卡号倒序"
+                        app:layout_constraintStart_toStartOf="@id/tvVipTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvVipTitle" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/switchBtnCardPositive"
+                        style="@style/switchBtnStyle"
+                        android:checked="@={deviceConfig.vipCarPositive}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvCardPositiveTitle" />
+
+                <View
+                        android:id="@+id/view2"
+                        style="@style/hori_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCardPositiveTitle" />
+
+
+                <TextView
+                        android:id="@+id/tvSerialTitle"
+                        style="@style/containerConfig_title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/y20"
+                        android:gravity="center"
+                        android:text="串口设置"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view2" />
+
+
+                <TextView
+                        android:id="@+id/tvShipmentSerial"
+                        style="@style/containerConfig_title2"
+                        android:text="出货串口"
+                        app:layout_constraintStart_toStartOf="@id/tvVipTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvSerialTitle" />
+
+                <Spinner
+                        android:id="@+id/spinnerShipmentSerial"
+                        style="@style/deviceConfigSpinner"
+                        android:onItemSelected="@{(parent,view,pos,id)->deviceConfigCallback.onItemSelected(parent,view,pos,id)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvShipmentSerial" />
+
+
+                <TextView
+                        android:id="@+id/tvKeyDownSerial"
+                        style="@style/containerConfig_title2"
+                        android:text="按键串口"
+                        app:layout_constraintStart_toStartOf="@id/tvShipmentSerial"
+                        app:layout_constraintTop_toBottomOf="@id/tvShipmentSerial" />
+
+                <Spinner
+                        android:id="@+id/spinnerKeyDownSerial"
+                        style="@style/deviceConfigSpinner"
+                        android:onItemSelected="@{(parent,view,pos,id)->deviceConfigCallback.onItemSelected(parent,view,pos,id)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvKeyDownSerial" />
+
+                <TextView
+                        android:id="@+id/tvVipCarSerial"
+                        style="@style/containerConfig_title2"
+                        android:text="会员卡串口"
+                        app:layout_constraintStart_toStartOf="@id/tvShipmentSerial"
+                        app:layout_constraintTop_toBottomOf="@id/tvKeyDownSerial" />
+
+                <Spinner
+                        android:id="@+id/spinnerVipCarSerial"
+                        style="@style/deviceConfigSpinner"
+                        android:onItemSelected="@{(parent,view,pos,id)->deviceConfigCallback.onItemSelected(parent,view,pos,id)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvVipCarSerial" />
+
+                <View
+                        android:id="@+id/view3"
+                        style="@style/hori_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvVipCarSerial" />
+
+                <TextView
+                        android:id="@+id/tvDomainTitle"
+                        style="@style/containerConfig_title2"
+                        android:gravity="center"
+                        android:text="域名设置"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view3" />
+
+                <TextView
+                        android:id="@+id/tvDomainApi"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:layout_marginStart="@dimen/x10"
+                        android:text="基础域名"
+                        app:layout_constraintStart_toStartOf="@id/tvVipCarSerial"
+                        app:layout_constraintTop_toBottomOf="@id/tvDomainTitle" />
+
+                <EditText
+                        android:id="@+id/editDomainApi"
+                        style="@style/deviceConfig_Edit"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:inputType="none"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{deviceConfig.domain}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvDomainApi"
+                        tools:text="http://www.baidu.com" />
+
+                <TextView
+                        android:id="@+id/tvDomainApiPort"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:text="基础端口"
+                        app:layout_constraintStart_toStartOf="@id/tvDomainApi"
+                        app:layout_constraintTop_toBottomOf="@id/tvDomainApi" />
+
+                <EditText
+                        android:id="@+id/editDomainPort"
+                        style="@style/deviceConfig_Edit"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{deviceConfig.port}"
+                        app:layout_constraintStart_toStartOf="@id/editDomainApi"
+                        app:layout_constraintTop_toTopOf="@id/tvDomainApiPort" />
+
+                <TextView
+                        android:id="@+id/tvDomainImg"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:text="图片域名"
+                        app:layout_constraintStart_toStartOf="@id/tvDomainApi"
+                        app:layout_constraintTop_toBottomOf="@id/tvDomainApiPort" />
+
+                <EditText
+                        android:id="@+id/editDomainImg"
+                        style="@style/deviceConfig_Edit"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:inputType="none"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{deviceConfig.imgBaseURL}"
+                        app:layout_constraintStart_toStartOf="@id/editDomainApi"
+                        app:layout_constraintTop_toTopOf="@id/tvDomainImg" />
+
+                <TextView
+                        android:id="@+id/tvDomainImgPort"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:text="图片端口"
+                        app:layout_constraintStart_toStartOf="@id/tvDomainApi"
+                        app:layout_constraintTop_toBottomOf="@id/tvDomainImg" />
+
+                <EditText
+                        android:id="@+id/editDomainImgPort"
+                        style="@style/deviceConfig_Edit"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{deviceConfig.imgPort}"
+                        app:layout_constraintStart_toStartOf="@id/editDomainApi"
+                        app:layout_constraintTop_toTopOf="@id/tvDomainImgPort" />
+
+                <View
+                        android:id="@+id/view4"
+                        style="@style/hori_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDomainImgPort" />
+
+                <TextView
+                        android:id="@+id/tvDeceviInfoTitle"
+                        style="@style/containerConfig_title2"
+                        android:gravity="center"
+                        android:text="设备信息"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view4" />
+
+
+                <TextView
+                        android:id="@+id/tvDeviceName"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:layout_marginStart="@dimen/x10"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="设备名称"
+                        app:layout_constraintStart_toStartOf="@id/tvDomainImgPort"
+                        app:layout_constraintTop_toBottomOf="@id/tvDeceviInfoTitle" />
+
+                <EditText
+                        android:id="@+id/editDeviceName"
+                        style="@style/deviceConfig_Edit"
+                        android:layout_marginStart="@dimen/x16"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{deviceConfig.DeviceTitle}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvDeviceName"
+                        tools:text="http://www.baidu.com" />
+
+
+                <TextView
+                        android:id="@+id/tvDevicePhone"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:text="客服电话"
+                        app:layout_constraintStart_toStartOf="@id/tvDeviceName"
+                        app:layout_constraintTop_toBottomOf="@id/tvDeviceName" />
+
+                <EditText
+                        android:id="@+id/editDevicePhone"
+                        style="@style/deviceConfig_Edit"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:inputType="number"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        android:text="@{deviceConfig.helpPhone}"
+                        app:layout_constraintStart_toStartOf="@id/editDeviceName"
+                        app:layout_constraintTop_toTopOf="@id/tvDevicePhone"
+                        tools:text="http://www.baidu.com" />
+
+                <View
+                        android:id="@+id/view5"
+                        style="@style/hori_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDevicePhone" />
+
+
+                <TextView
+                        android:id="@+id/tvPayTimerTitle"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:layout_marginStart="@dimen/x10"
+                        android:layout_marginTop="@dimen/y20"
+                        android:text="支付倒计时时间"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/view5" />
+
+                <EditText
+                        android:id="@+id/editPayTime"
+                        style="@style/deviceConfig_Edit"
+                        android:afterTextChanged="@{(edtitable)->deviceConfigCallback.afterTextChanged(edtitable,deviceConfig)}"
+                        android:hint="@{@string/payTimerHint(deviceConfig.payTimer)}"
+                        android:onFocusChange="@{(view,hasFocus)->deviceConfigCallback.onFocusChange(view,hasFocus)}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvPayTimerTitle"
+                        tools:text="http://www.baidu.com" />
+
+
+                <TextView
+                        android:id="@+id/tvSmilePayTitle"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:layout_marginStart="@dimen/x10"
+                        android:text="支付宝刷脸付"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPayTimerTitle" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/switchBtnAliSmile"
+                        style="@style/switchBtnStyle"
+                        android:checked="@={deviceConfig.aliPaySmilePay}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvSmilePayTitle" />
+
+                <TextView
+                        android:id="@+id/tvStockTitle"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:text="付款成功减库存"
+                        app:layout_constraintStart_toStartOf="@id/tvSmilePayTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvSmilePayTitle" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/switchBtnStockIsPay"
+                        style="@style/switchBtnStyle"
+                        android:checked="@={deviceConfig.stockIsPay}"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvStockTitle" />
+
+                <TextView
+                        android:id="@+id/tvAdult"
+                        style="@style/containerConfig_title2"
+                        android:layout_height="@dimen/y50"
+                        android:text="成人机"
+                        app:layout_constraintStart_toStartOf="@id/tvSmilePayTitle"
+                        app:layout_constraintTop_toBottomOf="@id/tvStockTitle" />
+
+                <com.kyleduo.switchbutton.SwitchButton
+                        android:id="@+id/switchAdult"
+                        style="@style/switchBtnStyle"
+                        android:checked="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvAdult" />
+            </android.support.constraint.ConstraintLayout>
+
+        </ScrollView>
+
+        <Button
+                android:id="@+id/tvChangeUser"
+                style="@style/toolbar_btn"
+                android:layout_width="match_parent"
+                android:layout_margin="@dimen/y20"
+                android:text="切换账号"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+    </android.support.constraint.ConstraintLayout>
+</layout>

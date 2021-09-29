@@ -1,0 +1,51 @@
+<resources>
+
+    <style name="pay_tv_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/y60</item>
+        <item name="android:textColor">@color/colorBarBg</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="pay_item_tv">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">@dimen/y20</item>
+        <item name="android:textColor">@color/colorRed6</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/y30</item>
+    </style>
+
+    <style name="blinbox_btn_style">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/y40</item>
+    </style>
+
+    <style name="detail_text">
+        <item name="android:layout_marginStart">@dimen/x30</item>
+        <item name="android:layout_marginEnd">@dimen/x30</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/y35</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="detail_icon">
+        <item name="android:layout_width">@dimen/x42</item>
+        <item name="android:layout_height">@dimen/y42</item>
+        <item name="android:layout_marginStart">@dimen/x20</item>
+        <item name="android:layout_marginTop">@dimen/y30</item>
+    </style>
+
+    <style name="video_parent">
+        <item name="android:layout_width">@dimen/x203</item>
+        <item name="android:layout_height">@dimen/y355</item>
+        <item name="android:layout_marginTop">@dimen/y45</item>
+        <item name="android:background">@drawable/video_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/y10</item>
+    </style>
+
+</resources>

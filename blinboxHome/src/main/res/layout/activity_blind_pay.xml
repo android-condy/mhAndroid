@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_background"
+        android:padding="@dimen/x20"
+        tools:context=".home.BlindPayActivity">
+
+    <ImageView
+            android:id="@+id/ivBg"
+            android:layout_width="@dimen/x728"
+            android:layout_height="@dimen/y888"
+            android:background="@drawable/qrcode_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/ivPayQrCode"
+            android:layout_width="@dimen/x513"
+            android:layout_height="@dimen/y513"
+            app:layout_constraintBottom_toBottomOf="@id/ivBg"
+            app:layout_constraintEnd_toEndOf="@id/ivBg"
+            app:layout_constraintStart_toStartOf="@id/ivBg"
+            app:layout_constraintTop_toTopOf="@id/ivBg" />
+
+    <TextView
+            android:id="@+id/tvTimeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/y20"
+            android:text="60s"
+            android:textColor="#ff1767eb"
+            android:textSize="@dimen/y60"
+            app:layout_constraintBottom_toTopOf="@id/ivPayQrCode"
+            app:layout_constraintEnd_toEndOf="@id/ivBg"
+            app:layout_constraintStart_toStartOf="@id/ivBg" />
+
+    <TextView
+            android:id="@+id/tvScanInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y20"
+            android:textColor="#ff1767eb"
+            android:textSize="@dimen/y50"
+            app:layout_constraintEnd_toEndOf="@id/ivBg"
+            app:layout_constraintStart_toStartOf="@id/ivBg"
+            app:layout_constraintTop_toBottomOf="@id/ivPayQrCode"
+            tools:text="@string/wechatScan" />
+
+    <TextView
+            android:visibility="gone"
+            android:id="@+id/tvChangePay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/x20"
+            android:text="@string/alipayInfo"
+            android:textColor="#ff1767eb"
+            android:textSize="@dimen/y26"
+            app:layout_constraintEnd_toStartOf="@id/ivTri"
+            app:layout_constraintTop_toBottomOf="@id/ivBg" />
+
+    <ImageView
+            android:visibility="gone"
+            android:id="@+id/ivTri"
+            android:layout_width="@dimen/x19"
+            android:layout_height="@dimen/y19"
+            android:layout_marginEnd="@dimen/x20"
+            android:src="@drawable/triangle"
+            app:layout_constraintBottom_toBottomOf="@id/tvChangePay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvChangePay" />
+</android.support.constraint.ConstraintLayout>

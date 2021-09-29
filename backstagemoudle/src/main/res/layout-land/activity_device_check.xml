@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bgcolor"
+        tools:context="com.idic.backstagemoudle.ui.DeviceCheckActivity">
+
+    <include
+            android:id="@+id/bar"
+            layout="@layout/back_start_toolbar" />
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvContainer"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y66"
+            android:layout_marginTop="@dimen/y20"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bar" />
+
+    <android.support.constraint.ConstraintLayout
+            android:id="@+id/consLayoutOperation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/x10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/rvMsg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rvContainer">
+
+        <EditText
+                android:id="@+id/editSingleChannel"
+                style="@style/checkDevice_edit"
+                android:layout_marginTop="@dimen/y16"
+                android:text="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+                android:id="@+id/tvSingle"
+                style="@style/checkDevice_tv"
+                android:text="@string/singleChannel"
+                app:layout_constraintStart_toEndOf="@id/editSingleChannel"
+                app:layout_constraintTop_toTopOf="@id/editSingleChannel" />
+
+        <EditText
+                android:id="@+id/editSingleTestCount"
+                style="@style/checkDevice_edit"
+                android:layout_width="@dimen/x250"
+                android:layout_marginStart="@dimen/x48"
+                android:hint="请输入测试次数,默认为1"
+                android:maxLength="5"
+                app:layout_constraintStart_toEndOf="@id/tvSingle"
+                app:layout_constraintTop_toTopOf="@id/editSingleChannel" />
+
+        <Button
+                android:id="@+id/btnSingleTest"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x16"
+                android:layout_marginTop="@dimen/y16"
+                android:text="@string/startTest"
+                app:layout_constraintStart_toStartOf="@id/editSingleChannel"
+                app:layout_constraintTop_toBottomOf="@id/editSingleChannel" />
+
+        <Button
+                android:id="@+id/btnSingleTestStop"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x36"
+                android:text="@string/stopTest"
+                app:layout_constraintStart_toEndOf="@id/btnSingleTest"
+                app:layout_constraintTop_toTopOf="@id/btnSingleTest" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_marginTop="@dimen/y15"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/btnSingleTest" />
+
+        <EditText
+                android:id="@+id/editIntervalChannelStart"
+                style="@style/checkDevice_edit"
+                android:layout_marginTop="@dimen/y36"
+                android:text="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnSingleTest" />
+
+        <TextView
+                android:id="@+id/tvIntervalStart"
+                style="@style/checkDevice_tv"
+                android:text="@string/intervalStart"
+                app:layout_constraintStart_toEndOf="@id/editIntervalChannelStart"
+                app:layout_constraintTop_toTopOf="@id/editIntervalChannelStart" />
+
+        <EditText
+                android:id="@+id/editIntervalChannelEnd"
+                style="@style/checkDevice_edit"
+                android:text="2"
+                app:layout_constraintStart_toEndOf="@id/tvIntervalStart"
+                app:layout_constraintTop_toTopOf="@id/editIntervalChannelStart" />
+
+        <TextView
+                android:id="@+id/tvIntervalEnd"
+                style="@style/checkDevice_tv"
+                android:text="@string/singleChannel"
+                android:textSize="@dimen/y30"
+                app:layout_constraintStart_toEndOf="@id/editIntervalChannelEnd"
+                app:layout_constraintTop_toTopOf="@id/editIntervalChannelStart" />
+
+        <EditText
+                android:id="@+id/editIntervalTestCount"
+                style="@style/checkDevice_edit"
+                android:layout_width="@dimen/x300"
+                android:layout_marginTop="@dimen/y20"
+                android:hint="请输入测试次数,默认为1"
+                android:maxLength="5"
+                app:layout_constraintStart_toStartOf="@id/editIntervalChannelStart"
+                app:layout_constraintTop_toBottomOf="@id/editIntervalChannelStart" />
+
+        <Button
+                android:id="@+id/btnIntervalTest"
+                style="@style/toolbar_btn"
+                android:layout_marginTop="@dimen/y20"
+                android:text="@string/startTest"
+                app:layout_constraintStart_toEndOf="@id/editIntervalTestCount"
+                app:layout_constraintTop_toBottomOf="@id/editIntervalChannelStart" />
+
+        <Button
+                android:id="@+id/btnIntervalTestStop"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x36"
+                android:text="@string/stopTest"
+                app:layout_constraintStart_toEndOf="@id/btnIntervalTest"
+                app:layout_constraintTop_toTopOf="@id/btnIntervalTest" />
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y1"
+                android:layout_marginTop="@dimen/y15"
+                android:background="@color/gray"
+                app:layout_constraintTop_toBottomOf="@id/btnIntervalTestStop" />
+
+        <TextView
+                android:id="@+id/tvLayerInfo"
+                style="@style/checkDevice_tv"
+                android:layout_marginTop="@dimen/y48"
+                android:text="@string/layerTest"
+                app:layout_constraintStart_toStartOf="@id/editSingleChannel"
+                app:layout_constraintTop_toBottomOf="@id/btnIntervalTest" />
+
+        <EditText
+                android:id="@+id/editLayer"
+                style="@style/checkDevice_edit"
+                android:layout_width="@dimen/x100"
+                android:layout_height="@dimen/y60"
+                android:text="1"
+                app:layout_constraintStart_toEndOf="@id/tvLayerInfo"
+                app:layout_constraintTop_toTopOf="@id/tvLayerInfo" />
+
+        <Button
+                android:id="@+id/btnLayerTest"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x24"
+                android:text="@string/startTest"
+                app:layout_constraintStart_toEndOf="@id/editLayer"
+                app:layout_constraintTop_toTopOf="@id/editLayer" />
+
+        <TextView
+                android:id="@+id/tvLayerAdjust"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/y10"
+                android:text="升降机层微调"
+                app:layout_constraintStart_toStartOf="@id/tvLayerInfo"
+                app:layout_constraintTop_toBottomOf="@id/btnCheckSensor" />
+
+        <Button
+                android:id="@+id/btnUp"
+                style="@style/toolbar_btn"
+                android:layout_marginTop="@dimen/y28"
+                android:background="@drawable/backstage_btn_selector"
+                android:text="上升"
+                app:layout_constraintStart_toStartOf="@id/tvLayerInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvLayerAdjust" />
+
+        <Button
+                android:id="@+id/btnDown"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x20"
+                android:background="@drawable/backstage_btn_selector"
+                android:text="下降"
+                app:layout_constraintStart_toEndOf="@id/btnUp"
+                app:layout_constraintTop_toTopOf="@id/btnUp" />
+
+        <Button
+                android:id="@+id/btnStop"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x20"
+                android:text="停止"
+                android:visibility="gone"
+                app:layout_constraintStart_toEndOf="@id/btnDown"
+                app:layout_constraintTop_toTopOf="@id/btnDown" />
+
+        <EditText
+                android:id="@+id/etLayer"
+                android:layout_width="@dimen/x500"
+                android:layout_height="@dimen/y100"
+                android:hint="请输入层高后保存"
+                android:inputType="number"
+                android:maxLength="1"
+                android:textSize="@dimen/y30"
+                app:layout_constraintStart_toStartOf="@id/btnUp"
+                app:layout_constraintTop_toBottomOf="@id/btnUp" />
+
+        <Button
+                android:id="@+id/btnSave"
+                style="@style/toolbar_btn"
+                android:layout_marginStart="@dimen/x20"
+                android:text="保存"
+                app:layout_constraintStart_toStartOf="@id/etLayer"
+                app:layout_constraintTop_toBottomOf="@id/etLayer" />
+
+
+        <Button
+                android:id="@+id/btnCheckSensor"
+                style="@style/toolbar_btn"
+                android:layout_marginTop="@dimen/y28"
+                android:text="@string/layerCheckSensor"
+                app:layout_constraintStart_toStartOf="@id/tvLayerInfo"
+                app:layout_constraintTop_toBottomOf="@id/tvLayerInfo" />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvMsg"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/x10"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/consLayoutOperation"
+            app:layout_constraintTop_toBottomOf="@id/rvContainer" />
+
+    <!--    <ScrollView-->
+    <!--            android:id="@+id/scrollView"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="0dp"-->
+    <!--            android:layout_margin="@dimen/x10"-->
+    <!--            android:background="@color/white"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toEndOf="@id/consLayoutOperation"-->
+    <!--            app:layout_constraintTop_toBottomOf="@id/rvContainer">-->
+
+    <!--        <TextView-->
+    <!--                android:id="@+id/tvCheckInfo"-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:textSize="@dimen/x25"-->
+    <!--                android:textStyle="bold" />-->
+    <!--    </ScrollView>-->
+</android.support.constraint.ConstraintLayout>

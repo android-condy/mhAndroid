@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.ConfigActivity">
+
+
+    <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y20"
+            android:text="检测到当前货柜信息未配置,请先配置相应信息"
+            android:textSize="@dimen/y40"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/tvStep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y20"
+            android:text="注意,当货道数量设置为0时表示当前层不存在\n1. 选择货柜\n2. 输入货道数量,容量以及库存\n3. 点击保存按钮\n4. 每个货柜设置完毕点击一次提交.全部配置完成点击配置完毕"
+            android:textSize="@dimen/y40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/y20"
+            android:background="@drawable/white_board"
+            app:layout_constraintTop_toBottomOf="@id/tvStep">
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_title"
+                    android:gravity="start"
+                    android:text="货柜编号" />
+
+            <Spinner
+                    android:id="@+id/spinnerContainer"
+                    style="@style/config_table_title" />
+
+        </TableRow>
+
+        <TableRow android:background="@color/bg_gray">
+
+            <TextView
+                    style="@style/config_table_title"
+                    android:text="层数" />
+
+            <TextView
+                    style="@style/config_table_title"
+                    android:text="货道数量" />
+
+            <TextView
+                    style="@style/config_table_title"
+                    android:text="库存" />
+
+            <TextView
+                    style="@style/config_table_title"
+                    android:text="容量" />
+
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="1" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="2" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="3" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="4" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="6" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="7" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="8" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="9" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                    style="@style/config_table_edit"
+                    android:text="10" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/aisleCount" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+
+            <EditText
+                    style="@style/config_table_edit"
+                    android:text="@string/_5" />
+        </TableRow>
+    </TableLayout>
+    <Button
+            android:id="@+id/btnClean"
+            android:text="清空所有配置"
+            android:textSize="@dimen/y40"
+            app:layout_constraintEnd_toStartOf="@id/btnSubmit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/table"
+            style="@style/config_btn" />
+    <Button
+            android:id="@+id/btnSubmit"
+            style="@style/config_btn"
+            android:text="提交"
+            app:layout_constraintEnd_toStartOf="@id/btnComplete"
+            app:layout_constraintStart_toEndOf="@id/btnClean"
+            app:layout_constraintTop_toBottomOf="@id/table" />
+    <Button
+            android:id="@+id/btnComplete"
+            style="@style/config_btn"
+            android:text="配置完毕"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSubmit"
+            app:layout_constraintTop_toBottomOf="@id/table" />
+
+</android.support.constraint.ConstraintLayout>

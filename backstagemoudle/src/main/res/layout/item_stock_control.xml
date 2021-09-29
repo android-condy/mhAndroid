@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    xmlns:tools="http://schemas.android.com/tools"
+                                    android:layout_width="@dimen/x300"
+                                    android:layout_height="@dimen/y400"
+                                    android:layout_marginTop="10px"
+                                    android:layout_marginRight="10px"
+                                    app:cardCornerRadius="@dimen/y10"
+                                    app:cardElevation="@dimen/y3"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent">
+
+    <FrameLayout
+            android:id="@+id/flRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/stock_manager_modify_selector">
+
+        <android.support.constraint.ConstraintLayout
+                android:id="@+id/clRootView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/x5"
+                android:background="@drawable/stock_bg"
+                android:padding="@dimen/y8">
+
+            <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="@dimen/x60"
+                    android:layout_height="@dimen/x60"/>
+
+            <TextView
+                    android:id="@+id/tvChannelNum"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y30"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/x20"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/image"
+                    app:layout_constraintBottom_toBottomOf="@id/image"
+                    tools:text="999"/>
+            <TextView
+                    android:id="@+id/tvProductName"
+                    style="@style/stockManager_tv"
+                    android:layout_marginTop="@dimen/y10"
+                    android:textSize="@dimen/y20"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/image"
+                    tools:text="东方树叶 绿茶"/>
+
+
+            <TextView
+                    android:id="@+id/tvCapacity"
+                    style="@style/stockManager_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y60"
+                    android:layout_marginTop="@dimen/y15"
+                    android:text="@string/capacity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvProductName"
+                    tools:text="容量:"/>
+
+            <LinearLayout
+                    android:id="@+id/llCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y60"
+                    android:layout_marginStart="@dimen/x10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toEndOf="@id/tvCapacity"
+                    app:layout_constraintTop_toTopOf="@id/tvCapacity">
+                <Button
+                        android:id="@+id/btnCapacityAdd"
+                        style="@style/stockManager_btn"
+
+                        android:text="@string/add"/>
+                <TextView
+                        android:id="@+id/editCapacityCount"
+                        style="@style/stockManager_edit"
+
+                        tools:text="5"/>
+                <Button
+                        android:id="@+id/btnCapacitySub"
+                        style="@style/stockManager_btn"
+
+                        android:text="@string/sub"/>
+
+            </LinearLayout>
+            <TextView
+                    android:id="@+id/managerStock"
+                    style="@style/stockManager_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y60"
+                    android:layout_marginTop="@dimen/y10"
+                    android:text="@string/managerStock"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCapacity"
+                    tools:text="库存:"/>
+
+            <LinearLayout
+                    android:id="@+id/llmanagerSurplus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y60"
+                    android:layout_marginStart="@dimen/x10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toEndOf="@id/managerStock"
+                    app:layout_constraintTop_toTopOf="@id/managerStock">
+                <Button
+                        android:id="@+id/btnSurplusAdd"
+                        style="@style/stockManager_btn"
+
+                        android:text="@string/add"/>
+                <TextView
+                        android:id="@+id/editSurplusCount"
+                        style="@style/stockManager_edit"
+
+                        tools:text="5"/>
+                <Button
+                        android:id="@+id/btnSurpluskSub"
+                        style="@style/stockManager_btn"
+
+                        android:text="@string/sub"/>
+
+            </LinearLayout>
+
+            <Button
+                    android:id="@+id/btnProductDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/y60"
+                    android:background="@drawable/btn_board_normal"
+                    android:padding="@dimen/y10"
+                    android:text="保存"
+                    android:gravity="center"
+                    android:textColor="@color/price_red"
+                    android:textSize="@dimen/y35"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

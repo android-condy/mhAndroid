@@ -1,0 +1,100 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+    generateStubs = true
+}
+
+android {
+    compileSdkVersion sdkVersion
+
+    defaultConfig {
+        minSdkVersion miniSdkVersion
+        targetSdkVersion targetSdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api "com.android.support:appcompat-v7:$appcompateVersion"
+    api "com.android.support:design:$appcompateVersion"
+    api "com.android.support:cardview-v7:$appcompateVersion"
+    api "com.android.support:support-annotations:$appcompateVersion"
+    api 'com.android.support.constraint:constraint-layout:1.1.3'
+    api "com.android.support:support-v4:$appcompateVersion"
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //log
+    api 'com.elvishew:xlog:1.6.1'
+    //rxJava
+    api 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+    api 'com.jakewharton.rxrelay2:rxrelay:2.0.0'
+    //协程
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
+
+    //arouter
+    api('com.alibaba:arouter-api:1.5.0', {
+        exclude group: 'com.android.support'
+    })
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+    api 'com.alibaba:fastjson:1.2.58'
+
+    // ViewModel and LiveData
+    api "android.arch.lifecycle:extensions:$archVersion"
+
+    // ReactiveStreams support for LiveData
+    api "android.arch.lifecycle:reactivestreams:$archVersion"
+
+    api 'com.android.support:multidex:1.0.3'
+
+    api 'com.github.rubensousa:gravitysnaphelper-compat:2.0'
+
+    //loading
+    api 'com.github.ybq:Android-SpinKit:1.2.0'
+
+    //阿里云OSS
+    implementation 'com.aliyun.dpa:oss-android-sdk:2.9.2'
+
+    api 'com.github.dueeeke.dkplayer:dkplayer-java:3.2.6'
+    api('com.github.dueeeke.dkplayer:player-exo:3.2.6', {
+        exclude group: 'androidx.annotation'
+    })
+    api 'com.github.dueeeke.dkplayer:videocache:3.2.6'
+
+    api('com.github.AlexLiuSheng:CheckVersionLib:2.4_appcompat', {
+        exclude group: 'com.squareup.okhttp3'
+    })
+
+//    api 'com.tencent.bugly:crashreport:latest.release'
+}

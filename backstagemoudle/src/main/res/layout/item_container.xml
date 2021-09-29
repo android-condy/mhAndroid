@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="container" type="com.idic.backstagemoudle.db.entity.ContainerConfigEntity"/>
+        <variable name="containerCallback" type="com.idic.backstagemoudle.ui.ContainerClickCallback"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="@dimen/x202"
+            android:layout_height="@dimen/y56">
+
+        <TextView
+                android:onClick="@{(view)->containerCallback.onClick(view,container)}"
+                android:id="@+id/tvContainerName"
+                android:background="@drawable/category_selector"
+                android:clickable="true"
+                tools:text="水"
+                android:textSize="@dimen/y25"
+                android:textColor="@color/category_selector"
+                android:gravity="center"
+                android:text="@{container.containerName}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"/>
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

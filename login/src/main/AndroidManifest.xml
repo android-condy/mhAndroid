@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+          android:sharedUserId="android.uid.system"
+        package="com.idic.login">
+    <!-- jpush -->
+    <!-- Required -->
+    <permission
+            android:name="com.idic.permission.JPUSH_MESSAGE"
+            android:protectionLevel="signature" />
+    <!--<uses-permission android:name="android.permission.REBOOT"/>-->
+    <!--<uses-permission android:sharedUserId="android.uid.system"/>-->
+    <!--<uses-permission android:name="android.permission.SHUTDOWN" />-->
+    <uses-permission android:name="android.permission.READ_CALENDAR"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="com.idic.permission.JPUSH_MESSAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" /> <!-- 隐藏状态栏权限 -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" /> <!-- 开机自启 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 获取设备信息 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- 允许程序录制音频 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+            android:allowBackup="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme"
+            tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ui.activity.ConfigActivity"/>
+
+        <service
+                android:name=".service.GuardService"
+                android:enabled="true"
+                android:exported="true"
+                android:process=":guard" /> <!-- 检测登录 -->
+        <activity android:name=".ui.activity.CheckInfoActivity" /> <!-- 无网络 -->
+        <activity android:name=".ui.activity.NetErrorActivity" /> <!-- 登录 -->
+        <activity android:name=".ui.activity.LoginActivity" /> <!-- 启动页 -->
+        <activity android:name=".ui.activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+                android:name=".service.UploadStatusService"
+                android:enabled="true"
+                android:exported="true" />
+        <service
+                android:name=".service.HeartbeatService"
+                android:enabled="true"
+                android:exported="true" />
+
+        <receiver android:name=".broadCast.BootBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </receiver> <!-- 极光推送 -->
+        <activity
+                android:name="cn.jpush.android.ui.PushActivity"
+                android:configChanges="orientation|keyboardHidden"
+                android:exported="false"
+                android:theme="@android:style/Theme.NoTitleBar">
+            <intent-filter>
+                <action android:name="cn.jpush.android.ui.PushActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.idic" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+                android:name=".broadCast.JpushCast"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTRATION" /> <!-- Required  用户注册SDK的intent -->
+                <action android:name="cn.jpush.android.intent.MESSAGE_RECEIVED" /> <!-- Required  用户接收SDK消息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED" /> <!-- Required  用户接收SDK通知栏信息的intent -->
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" /> <!-- Required  用户打开自定义通知栏的intent -->
+                <action android:name="cn.jpush.android.intent.ACTION_RICHPUSH_CALLBACK" /> <!-- Optional 用户接受Rich Push Javascript 回调函数的intent -->
+                <action android:name="cn.jpush.android.intent.CONNECTION" /> <!-- 接收网络变化 连接/断开 since 1.6.3 -->
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.idic" />
+            </intent-filter>
+        </receiver>
+        <receiver
+                android:name=".receiver.TestReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.RECEIVE_MESSAGE" />
+
+                <category android:name="com.idic" />
+            </intent-filter>
+        </receiver>
+
+        <service
+                android:name="cn.jpush.android.service.PushService"
+                android:exported="false"
+                android:process=":jgpush"
+                tools:replace="android:process">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+
+        <provider
+                android:name="cn.jpush.android.service.DataProvider"
+                android:authorities="com.idic.DataProvider"
+                android:exported="false"
+                tools:replace="android:exported" /> <!-- since 3.1.0 Required SDK 核心功能 -->
+        <provider
+                android:name="cn.jpush.android.service.DownloadProvider"
+                android:authorities="com.idic.DownloadProvider"
+                android:exported="true"
+                tools:replace="android:exported" /> <!-- Required SDK核心功能 -->
+        <receiver
+                android:name="cn.jpush.android.service.PushReceiver"
+                android:enabled="true"
+                android:exported="false">
+            <intent-filter android:priority="100">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" /> <!-- Required  显示通知栏 -->
+                <category android:name="com.idic" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <!-- Optional -->
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver> <!-- Required SDK核心功能 -->
+        <receiver
+                android:name="cn.jpush.android.service.AlarmReceiver"
+                android:exported="false" /> <!-- Required  . Enable it you can get statistics data with channel -->
+        <meta-data
+                android:name="JPUSH_CHANNEL"
+                android:value="developer-default" />
+        <meta-data
+                android:name="JPUSH_APPKEY"
+                android:value="eba5d07271ec78964aa5c1e0" />
+    </application>
+
+</manifest>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+                name="productDetail"
+                type="com.idic.datamoudle.db.entity.NewProductDetail"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                 xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                 xmlns:tools="http://schemas.android.com/tools"
+                                                 android:layout_width="match_parent"
+                                                 android:layout_height="match_parent"
+                                                 android:background="@drawable/no_logo_common_bg"
+                                                 tools:context=".home.ProductDetailActivity">
+
+        <com.dueeeke.videoplayer.player.VideoView
+                android:id="@+id/bgVideo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        <ImageView
+                android:id="@+id/ivPrdbg"
+                productImg="@{productDetail.image_url}"
+                android:layout_width="@dimen/x1024"
+                android:layout_height="@dimen/y1000"
+                android:layout_marginTop="@dimen/y400"
+                android:background="@drawable/blind_product_detail"
+                android:padding="@dimen/y40"
+                android:scaleType="centerInside"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+                android:id="@+id/ivIcon1"
+                style="@style/detail_icon"
+                android:background="@drawable/detail_icon"
+                app:layout_constraintStart_toStartOf="@id/ivPrdbg"
+                app:layout_constraintTop_toBottomOf="@id/ivPrdbg"/>
+        <TextView
+                android:id="@+id/tvProductName"
+                style="@style/detail_text"
+                android:maxLines="1"
+                android:text="商品名称: "
+                android:layout_width="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/ivIcon1"
+                app:layout_constraintTop_toTopOf="@id/ivIcon1"
+        />
+
+        <TextView
+                android:id="@+id/tvProductName1"
+                style="@style/detail_text"
+                android:maxLines="2"
+                android:layout_marginStart="0dp"
+                android:text="@{productDetail.sku_name}"
+                tools:text="龙珠超 剧场版 ULTIMATE SOLDIERS-THE MOVIE-Ⅲ(超级赛亚人之神超级赛亚人贝吉塔)"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvProductName"
+                app:layout_constraintTop_toTopOf="@id/ivIcon1"/>
+
+
+        <ImageView
+                android:id="@+id/ivIcon2"
+                style="@style/detail_icon"
+                android:background="@drawable/detail_icon"
+                app:layout_constraintStart_toStartOf="@id/ivPrdbg"
+                app:layout_constraintTop_toBottomOf="@id/tvProductName1"/>
+
+        <TextView
+                android:id="@+id/tvProductSize"
+                style="@style/detail_text"
+                android:text="@{@string/detail_size(productDetail.size)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivIcon2"
+                app:layout_constraintTop_toTopOf="@id/ivIcon2"
+                tools:text="商品尺寸: "/>
+
+        <ImageView
+                android:id="@+id/ivIcon3"
+                style="@style/detail_icon"
+                android:background="@drawable/detail_icon"
+                app:layout_constraintStart_toStartOf="@id/ivPrdbg"
+                app:layout_constraintTop_toBottomOf="@id/ivIcon2"/>
+
+        <TextView
+                android:id="@+id/tvProductMaterial"
+                style="@style/detail_text"
+                android:text="@{@string/detail_material(productDetail.caizhi)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivIcon3"
+                app:layout_constraintTop_toTopOf="@id/ivIcon3"
+                tools:text="商品材质: "/>
+
+        <ImageView
+                android:id="@+id/ivIcon4"
+                style="@style/detail_icon"
+                android:background="@drawable/detail_icon"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="@id/ivPrdbg"
+                app:layout_constraintTop_toBottomOf="@id/ivIcon3"/>
+
+        <TextView
+                android:id="@+id/tvProductDetail"
+                style="@style/detail_text"
+                android:maxLines="2"
+                android:text="@string/detail_desc"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivIcon4"
+                app:layout_constraintTop_toTopOf="@id/ivIcon4"
+                tools:text="商品描述: "/>
+
+        <ImageView
+                android:id="@+id/ivIcon5"
+                style="@style/detail_icon"
+
+                android:background="@drawable/detail_icon"
+                app:layout_constraintStart_toStartOf="@id/ivPrdbg"
+                app:layout_constraintTop_toBottomOf="@id/tvProductDetail"/>
+
+        <TextView
+                android:id="@+id/tvProductPrice"
+                style="@style/detail_text"
+                android:text="@{@string/detail_price(productDetail.price)}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivIcon5"
+                app:layout_constraintTop_toTopOf="@id/ivIcon5"
+                tools:text="商品价格: "/>
+
+        <Button
+                android:id="@+id/btnWeChatPay"
+                android:layout_width="@dimen/x365"
+                android:layout_height="@dimen/y90"
+                android:layout_marginStart="@dimen/x48"
+                android:background="@drawable/left_top"
+                android:text="微信支付"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y40"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivIcon5"/>
+
+        <Button
+                android:id="@+id/btnAliPay"
+                android:layout_width="@dimen/x365"
+                android:layout_height="@dimen/y90"
+                android:layout_marginStart="@dimen/x48"
+                android:background="@drawable/right_bottom"
+                android:text="付款"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ivIcon5"
+                android:textColor="@color/white"
+                android:textSize="@dimen/y44"/>
+
+        <Button
+                android:id="@+id/btnBack"
+                android:layout_width="@dimen/x90"
+                android:layout_height="@dimen/y90"
+                android:layout_marginStart="@dimen/x40"
+                android:background="@drawable/blind_back"
+                app:layout_constraintBottom_toBottomOf="@id/btnAliPay"
+                app:layout_constraintStart_toEndOf="@id/btnAliPay"
+                app:layout_constraintTop_toTopOf="@id/btnAliPay"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

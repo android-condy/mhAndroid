@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/no_logo_common_bg"
+        tools:context=".home.BlindShipmentActivity">
+
+    <com.dueeeke.videoplayer.player.VideoView
+            android:id="@+id/bgVideo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    <ImageView
+            android:id="@+id/ivPrdbg"
+            android:layout_width="@dimen/x1024"
+            android:layout_height="@dimen/y592"
+            android:layout_marginTop="@dimen/y400"
+            android:background="@drawable/blind_product_detail"
+            android:padding="@dimen/y40"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+            android:id="@+id/logo2"
+            android:layout_width="@dimen/x357"
+            android:layout_height="@dimen/y234"
+            android:layout_marginTop="@dimen/y40"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPrdbg"
+            tools:background="@drawable/shipment_icon" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/y40"
+            android:text="出 货 失 败"
+            android:textColor="#ffff0000"
+            android:textSize="@dimen/y54"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/logo2" />
+
+    <Button
+            android:id="@+id/btnBack"
+            android:layout_width="@dimen/x983"
+            android:layout_height="@dimen/y135"
+            android:layout_marginBottom="@dimen/y40"
+            android:background="@drawable/left_bottom"
+            android:text="点我回首页"
+            android:textColor="@color/white"
+            android:textSize="@dimen/y50"
+            app:layout_constraintBottom_toTopOf="@id/adBanner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <com.idic.widgetmoudle.BannerViewPager
+            android:id="@+id/adBanner"
+            android:layout_width="@dimen/x962"
+            android:layout_height="@dimen/y278"
+            android:layout_margin="@dimen/y8"
+            app:banner_isTouch="false"
+            app:banner_isloop="false"
+            app:layout_constraintBottom_toBottomOf="@id/ivBg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+            android:id="@+id/ivBg"
+            android:layout_width="@dimen/x980"
+            android:layout_height="@dimen/y295"
+            android:layout_marginBottom="@dimen/y20"
+            android:background="@drawable/long_img_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    <com.idic.widgetmoudle.ZoomIndicator
+            android:id="@+id/indicaZoom"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y30"
+            android:layout_gravity="bottom|right"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@id/adBanner"
+            app:layout_constraintEnd_toEndOf="@id/adBanner"
+            app:layout_constraintStart_toStartOf="@id/adBanner"
+            app:zoom_alpha_min="0.5"
+            app:zoom_leftmargin="@dimen/x20"
+            app:zoom_max="1.5"
+            app:zoom_selector="@drawable/indicator_blue_circle" />
+
+
+</android.support.constraint.ConstraintLayout>

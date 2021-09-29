@@ -1,0 +1,53 @@
+<resources>
+
+    <!-- login -->
+    <style name="tilStyle">
+        <item name="android:layout_width">@dimen/x730</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="tieStyle">
+        <item name="android:textColorHint">@color/colorTv</item>
+        <item name="android:textSize">@dimen/y40</item>
+        <item name="android:textColor">@color/colorTv</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="theme">@style/customLineColor</item>
+    </style>
+
+    <style name="customLineColor" parent="@android:style/TextAppearance">
+        <item name="colorControlNormal">@color/gray</item>
+        <item name="colorControlActivated">@color/colorGreen</item>
+    </style>
+
+    <style name="config_table_title">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/y100</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/y70</item>
+    </style>
+
+    <style name="config_table_edit">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">@dimen/y100</item>
+        <item name="android:textSize">@dimen/y50</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@drawable/table_white_board</item>
+        <item name="android:gravity">center</item>
+        <item name="android:inputType">number</item>
+        <item name="android:maxLength">2</item>
+    </style>
+
+    <style name="config_btn">
+        <item name="android:layout_width">@dimen/x300</item>
+        <item name="android:layout_height">@dimen/y100</item>
+        <item name="android:layout_marginTop">@dimen/y50</item>
+        <item name="android:background">@drawable/login_btn</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/y60</item>
+    </style>
+
+
+</resources>

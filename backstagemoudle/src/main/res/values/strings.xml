@@ -1,0 +1,90 @@
+<resources>
+    <string name="app_name">backstageMoudle</string>
+    <string name="back">返回</string>
+    <string name="aisleTest">货道测试</string>
+    <string name="aisleNumber">%1$d号货道</string>
+    <string name="aisle_info">%1$d行%2$d列</string>
+    <string name="backStage">后台管理</string>
+    <string name="stockManager">商品管理</string>
+    <string name="containerConfig">货柜配置</string>
+    <string name="aisleSetting">货道配置</string>
+    <string name="deviceConfig">设备配置</string>
+    <string name="deviceCheck">设备检测</string>
+    <string name="soldHome">售卖界面</string>
+    <string name="deviceActive">设备激活</string>
+    <string name="checkUpdate">检测更新</string>
+    <string name="uploadLog">上传日志</string>
+    <string name="sysSetting">系统设置</string>
+    <string name="exitApp">退出程序</string>
+    <string name="open">开启</string>
+    <string name="close">关闭</string>
+    <string name="positiveSequence">正序</string>
+    <string name="trans">反序</string>
+    <string name="screenStop">检测到掉货立即停止运行</string>
+    <string name="ScreenRunning">检测到掉货继续运行</string>
+    <string name="screen">光幕</string>
+    <string name="layer">升降机</string>
+    <string name="channelNumber">%1$d号货道</string>
+    <string name="unFeedbackLock">无反馈锁</string>
+    <string name="feedbackLock">有反馈锁</string>
+    <string name="twoWireMotor">二线制电机</string>
+    <string name="threeWireMotor">三线制电机</string>
+    <string name="saveSuccess">保存成功</string>
+    <string name="allSetMotorType">批量设置电机类型</string>
+    <string name="btnLayerSave">确&#160;&#160;&#160;定</string>
+    <string name="saveAllAisle">修改所有货道</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+    <string name="fillUpAll">库存全部补满</string>
+    <string name="managerStock">库存：</string>
+    <string name="lockStock">锁定库存：</string>
+    <string name="capacity">容量：</string>
+    <string name="rowTitle">第%1$s层 %2$d个产品</string>
+    <string name="fillUpRow">一键补满</string>
+    <string name="shopCarCount">购物车容量：%1$d</string>
+    <string name="singleChannel">%1$d号货道</string>
+    <string name="startTest">开始测试</string>
+    <string name="intervalStart">号货道到</string>
+    <string name="stopTest">停止测试</string>
+    <string name="layerTest">升降机到达指定层数</string>
+    <string name="layerCheckSensor">升降机相关传感器检测</string>
+    <string name="testing_toast">正在测试中,请等待测试完成</string>
+    <string name="testing">测试中…</string>
+    <string name="curUserName">当前登录账号:%1$s</string>
+    <string name="modify_success">修改成功</string>
+    <string name="modify_fail">修改失败</string>
+    <!--- login -->
+    <string name="etUserName">请输入用户名</string>
+    <string name="etPassword">请输入密码</string>
+    <string name="etKey">请输入激活码</string>
+    <string name="login">登 录</string>
+    <string name="dialog_login_fail">登录失败，请检查用户名或密码是否正确</string>
+    <string name="login_title">用户登录</string>
+    <string name="payTimerHint">当前计时: %1$s</string>
+
+    <string name="item_channel_name">第%1$s行</string>
+    <string name="item_channel_test_name">%1$s号货道</string>
+    <string name="channelProductNum">库存：%1$S</string>
+    <string name="channelProductLockNum">锁定库存：%1$S</string>
+    <string name="dialog_modify_chanelName">货道编号：%1$s</string>
+    <string name="dialog_modify_chanelStatus">货道状态：%1$s</string>
+    <string name="dialog_modify_chanelRow">货道行列：%1$s</string>
+    <string name="dialog_modify_productName">产品名称：%1$s</string>
+    <string name="dialog_modify_chanelCount">库存数量：</string>
+    <string name="dialog_modify_chanelLockNum">锁定数量：</string>
+    <string name="dialog_modify_chanelStock">货道容量：</string>
+    <string name="modify_price">价格: %1$s</string>
+
+    <string-array name="backstage_item">
+        <item>商品管理</item>
+        <!--        <item>货柜配置</item>-->
+        <!--        <item>设备配置</item>-->
+        <item>设备检测</item>
+        <!--        <item>售卖界面</item>-->
+<!--        <item>设备激活</item>-->
+        <item>检测更新</item>
+        <!--        <item>上传日志</item>-->
+        <!--        <item>系统设置</item>-->
+        <item>退出程序</item>
+    </string-array>
+</resources>

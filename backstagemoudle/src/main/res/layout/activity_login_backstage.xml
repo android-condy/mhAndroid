@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:background="@drawable/dialog_background"
+        android:layout_height="wrap_content">
+
+    <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/login_title"
+            android:textColor="@color/white"
+            android:text="@string/login_title"
+            android:gravity="center"
+            android:textSize="@dimen/x30"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/y60"/>
+
+    <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="@dimen/y32"
+            android:layout_marginBottom="@dimen/y24"
+            android:id="@+id/tilName"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            app:layout_constraintBottom_toTopOf="@id/tilPW"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/tilStyle"
+            android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/dialog_tieName"
+                style="@style/tieStyle"
+                android:hint="@string/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+            android:layout_marginBottom="@dimen/y24"
+            android:id="@+id/tilPW"
+            app:layout_constraintBottom_toTopOf="@id/dialog_btnLogin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/tilStyle"
+            android:layout_height="wrap_content">
+
+        <android.support.design.widget.TextInputEditText
+                android:id="@+id/dialog_tiePW"
+                style="@style/tieStyle"
+                android:hint="@string/etPassword"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+            android:layout_marginBottom="@dimen/y32"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="@dimen/x500"
+            android:layout_height="@dimen/y60"
+            android:background="@color/dialog_login_btn"
+            android:textColor="@color/white"
+            android:text="@string/login"
+            android:textSize="@dimen/x30"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/y36"
+            android:layout_marginEnd="@dimen/y36"
+            android:id="@+id/dialog_btnLogin"/>
+
+</android.support.constraint.ConstraintLayout>
