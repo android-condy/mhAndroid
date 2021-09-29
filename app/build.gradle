@@ -1,0 +1,138 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: "../config.gradle"
+kapt {
+    arguments {
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+    generateStubs = true
+}
+
+android {
+    compileSdkVersion sdkVersion
+    defaultConfig {
+        applicationId "com.idic"
+        minSdkVersion miniSdkVersion
+        targetSdkVersion targetSdk
+        versionCode appCode
+        versionName appVersion
+        multiDexEnabled true
+        multiDexKeepProguard file('multidexKeep.pro')
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //设置支持的SO库架构
+            abiFilters 'armeabi-v7a' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+//            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "eba5d07271ec78964aa5c1e0", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+        buildConfigField "String", "Base_url", "\"$idicDoMain\""
+        buildConfigField "String", "Base_port", "\"$idicDoMainPort\""
+        buildConfigField "String", "Base_Img_url", "\"$idicImgDoMain\""
+        buildConfigField "String", "Base_imgport", "\"$idicImgDoMainPort\""
+        buildConfigField "String", "pgyKey", "\"$idic_pgyerKey\""
+
+
+    }
+
+    signingConfigs {
+        release {
+            keyAlias "$keyAlias_name"
+            keyPassword "$key_password"
+            storeFile file("$key_File")
+            storePassword "$key_password"
+            v2SigningEnabled true
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+/*
+        release {
+            minifyEnabled false   //开启混淆
+            zipAlignEnabled false  //压缩优化
+            shrinkResources false  //移出无用资源
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                def buildType = variant.buildType.name
+                if (buildType == "release") {
+                    variant.getPackageApplication().outputDirectory = new File("$apkDir")
+                    variant.outputs.all { output ->
+                        def outputFile = output.outputFile
+                        if (outputFile != null && outputFile.name.endsWith(".apk")) {
+                            // def fileName = "盲盒${variant.versionName}_${variant.versionCode}_${releaseTime()}.apk"
+                            def fileName = "${variant.versionName}_${variant.versionCode}_${releaseTime()}.apk"
+                            outputFileName = fileName
+                        }
+                    }
+                }
+            }
+        }
+        */
+
+        release {
+            minifyEnabled false   //开启混淆
+            zipAlignEnabled false  //压缩优化
+            shrinkResources false  //移出无用资源
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "Base_url", "\"$idicDoMain\""
+            buildConfigField "String", "Base_port", "\"$idicDoMainPort\""
+            buildConfigField "String", "Base_Img_url", "\"$idicImgDoMain\""
+            buildConfigField "String", "Base_imgport", "\"$idicImgDoMainPort\""
+        }
+        debug {
+            signingConfig signingConfigs.release
+            buildConfigField "String", "Base_url", "\"$idicDoMain\""
+            buildConfigField "String", "Base_port", "\"$idicDoMainPort\""
+            buildConfigField "String", "Base_Img_url", "\"$idicImgDoMain\""
+            buildConfigField "String", "Base_imgport", "\"$idicImgDoMainPort\""
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+//repositories {
+//    flatDir {
+//        dirs 'libs' //this way we can find the .aar file in libs folder
+//    }
+//}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+
+    implementation project(path: ':basecommon')
+    implementation project(path: ':backstagemoudle')
+    implementation project(path: ':login')
+    implementation project(path: ':blinboxHome')
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+
+    //蒲公英
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.5'
+}
+repositories {
+    mavenCentral()
+}
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd", TimeZone.getTimeZone("UTC"))
+}

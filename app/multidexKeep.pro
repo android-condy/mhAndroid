@@ -1,0 +1,4 @@
+-keep  class com.idic.utilmoudle.UtilsApp
+-keep class com.idic.datamoudle.DataApp
+-keep class com.idic.login.LoginApp
+-keep class com.idic.backstagemoudle.BackstageApp

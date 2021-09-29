@@ -1,0 +1,7 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+/release
+/build
+app/release/盲盒V20201016_20201016_20201016.apk

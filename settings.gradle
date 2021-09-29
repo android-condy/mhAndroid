@@ -1,0 +1,7 @@
+include ':serial'
+include ':app'//include ':wisdomrunway'
+include ':blinboxHome'
+//include ':blindbox'
+//include ':mtkpad'
+//include ':bluehome'
+include ':login', ':basecommon', ':utilmoudle', ':widgetmoudle', ':datamoudle', ':httpmoudle',  ':paymoudle',  ':backstagemoudle' //, ':newapp', ':luckbagmoudle', ':halfproductsmoudle', ':smilepay', ':printer'//, ':app'

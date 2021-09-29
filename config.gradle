@@ -1,0 +1,29 @@
+ext {
+    // 蒲公英的配置
+    idic_pgyerKey = "cb5575b4458da0c376064d6a2c4623c9"
+    idicDoMain = "http://mh.api.kjndj.com"
+//    idicDoMain = "http://api.dwyzn.com"
+    idicDoMainPort = "80"
+    idicImgDoMain = "http://mh.api.kjndj.com"
+//    idicImgDoMain = "http://console.dwyzn.com"
+    idicImgDoMainPort = "80"
+
+    //打包的秘钥
+    keyAlias_name = "key0"
+    key_password = "123456"
+    key_File = "../DKVM.jks"
+    store_password = "123456"
+    //打包的路径
+    apkDir = "release"
+}
+
+task deleteGreenJson(type: Delete) {
+
+    delete "${project.rootDir.absolutePath}/login/objectbox-models/default.json"
+}
+
+task copyGreenDao(type: Copy) {
+    from "${project.rootDir.absolutePath}/default.json"
+
+    into "${project.rootDir.absolutePath}/login/objectbox-models"
+}

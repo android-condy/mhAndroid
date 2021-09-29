@@ -1,0 +1,3 @@
+cd "c:\Program Files\Java\jdk1.8.0_251\bin"
+
+keytool -genkey -alias key0 -keypass 123456 -keyalg RSA -keysize 2048 -validity 36500 -keystore F:\YANG_Bread\mhAndroid\ZHE.jks -storepass 123456 -deststoretype pkcs12
